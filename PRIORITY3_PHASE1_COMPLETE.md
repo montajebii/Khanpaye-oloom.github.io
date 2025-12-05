@@ -11,6 +11,7 @@
 ### ✅ Phase 1: Planning & Preparation (COMPLETE)
 
 #### 1. SEO Documentation Created
+
 - **PRIORITY3_SEO_GUIDE.md** - 600+ line comprehensive guide
   - 4 implementation phases outlined
   - Detailed metadata for each page
@@ -34,6 +35,7 @@
 #### 2. Configuration Files Updated
 
 **sitemap.xml** ✅
+
 ```
 ✅ 12 pages included
 ✅ Proper XML structure
@@ -47,6 +49,7 @@
 ```
 
 **robots.txt** ✅
+
 ```
 ✅ Corrected sitemap URL
 ✅ Added admin protection
@@ -55,6 +58,7 @@
 ```
 
 #### 3. Implementation Plan Created
+
 - **PRIORITY3_IMPLEMENTATION_PLAN.md**
   - Roadmap for Phase 2, 3, 4
   - Detailed checklists for each task
@@ -64,7 +68,8 @@
   - Best practices guide
 
 #### 4. Project Checklist Updated
-- **PROJECT_CHECKLIST.md** 
+
+- **PROJECT_CHECKLIST.md**
   - Overall project status
   - Priority 1: 100% ✅ Complete
   - Priority 2: 100% ✅ Complete  
@@ -94,6 +99,7 @@
 12. ✅ pages/about.html - About page (metadata prepared)
 
 **Each page needs:**
+
 - [ ] Meta description (from SEO_METADATA_REFERENCE.md)
 - [ ] Meta keywords (from SEO_METADATA_REFERENCE.md)
 - [ ] Open Graph tags (from SEO_METADATA_REFERENCE.md)
@@ -106,6 +112,7 @@
 ### Phase 3: Analytics Setup (Ready After GA Account)
 
 **Google Analytics 4:**
+
 - [ ] Create account at analytics.google.com
 - [ ] Create property for 0loum.ir
 - [ ] Get tracking ID (format: G-XXXXXXXXXX)
@@ -117,15 +124,17 @@
 ### Phase 4: Search Console Submission (Ready Now)
 
 **Google Search Console:**
+
 - [ ] Create account at search.google.com/search-console
-- [ ] Add property: https://0loum.ir
+- [ ] Add property: <https://0loum.ir>
 - [ ] Verify ownership
 - [ ] Submit sitemap.xml (already prepared ✅)
 - [ ] Monitor indexing status
 
 **Bing Webmaster Tools:**
+
 - [ ] Create account at bing.com/webmasters
-- [ ] Add site: https://0loum.ir
+- [ ] Add site: <https://0loum.ir>
 - [ ] Verify ownership
 - [ ] Submit sitemap.xml (already prepared ✅)
 - [ ] Monitor crawl stats
@@ -137,6 +146,7 @@
 ## 📊 Current State Summary
 
 ### Files Created for Priority 3
+
 ```
 ✅ PRIORITY3_SEO_GUIDE.md (600 lines)
 ✅ SEO_METADATA_REFERENCE.md (400 lines)
@@ -145,12 +155,14 @@
 ```
 
 ### Files Updated for Priority 3
+
 ```
 ✅ sitemap.xml (populated with 12 pages)
 ✅ robots.txt (corrected sitemap URL)
 ```
 
 ### Ready to Update (12 pages)
+
 ```
 ⏳ index.html (metadata prepared)
 ⏳ courses.html (metadata prepared)
@@ -171,13 +183,15 @@
 ## 🚀 Next Steps
 
 ### Immediate (Next 2-3 hours)
-1. Review `SEO_METADATA_REFERENCE.md` 
+
+1. Review `SEO_METADATA_REFERENCE.md`
 2. Open each page in HTML editor
 3. Copy metadata snippets for that page
 4. Paste into `<head>` section
 5. Save and test with Facebook Debugger
 
 ### Short-term (Next day)
+
 1. Complete all 12 pages
 2. Test with Twitter Card Validator
 3. Create Google Analytics account
@@ -185,12 +199,14 @@
 5. Add GA script to all pages
 
 ### Medium-term (Next 2 days)
+
 1. Test structured data with Google tool
 2. Submit sitemap to Google Search Console
 3. Submit to Bing Webmaster Tools
 4. Monitor indexing progress
 
 ### Long-term (Ongoing)
+
 1. Monitor analytics dashboard
 2. Check search console for issues
 3. Optimize based on data
@@ -199,7 +215,7 @@
 
 ## 🎯 Implementation Quick Guide
 
-### For Meta Tag Implementation:
+### For Meta Tag Implementation
 
 **Step 1:** Open SEO_METADATA_REFERENCE.md
 
@@ -224,24 +240,28 @@
 ## 📈 Expected Results
 
 ### After Phase 2 (Meta Tags)
+
 - ✅ All pages optimized for search engines
 - ✅ Social media sharing will show proper previews
 - ✅ Rich snippets in search results
 - ✅ Better click-through rates in SERPs
 
 ### After Phase 3 (Analytics)
+
 - ✅ User behavior tracking active
 - ✅ Traffic analysis available
 - ✅ Conversion tracking possible
 - ✅ User flow insights visible
 
 ### After Phase 4 (Search Consoles)
+
 - ✅ Google indexing status visible
 - ✅ Search performance metrics tracked
 - ✅ Mobile usability issues identified
 - ✅ Crawl error alerts enabled
 
 ### After 4-8 Weeks
+
 - ✅ Improved search visibility
 - ✅ Higher organic traffic
 - ✅ Better social engagement
@@ -263,6 +283,7 @@
 ## ✅ Quality Assurance
 
 ### Phase 1 Checklist (Complete)
+
 - [x] All documentation created
 - [x] All metadata prepared
 - [x] All configuration files updated
@@ -271,6 +292,7 @@
 - [x] Ready for implementation
 
 ### Phase 2 Checklist (Ready)
+
 - [ ] All 12 pages updated with meta tags
 - [ ] All meta descriptions added
 - [ ] All meta keywords added
@@ -282,6 +304,7 @@
 - [ ] Tested with Twitter Validator
 
 ### Phase 3 Checklist (Ready)
+
 - [ ] GA account created
 - [ ] GA tracking ID obtained
 - [ ] GA script added to all pages
@@ -289,6 +312,7 @@
 - [ ] Events tracking configured
 
 ### Phase 4 Checklist (Ready)
+
 - [ ] Google Search Console account created
 - [ ] Property added and verified
 - [ ] Sitemap submitted
@@ -303,23 +327,27 @@
 **All preparation for Priority 3 is complete!**
 
 ### Phase 1: ✅ 100% Complete
+
 - ✅ Comprehensive guides created
 - ✅ Metadata prepared for all pages
 - ✅ Configuration files updated
 - ✅ Checklists and plans documented
 
 ### Phase 2: ⏳ Ready to Start
+
 - 12 pages waiting for meta tag implementation
 - Estimated time: 2-3 hours
 - All metadata already prepared
 - Just copy-paste and save
 
 ### Phase 3: ⏳ Ready to Start
+
 - Google Analytics setup guide ready
 - Just need to create account and get ID
 - Estimated time: 30 minutes
 
 ### Phase 4: ⏳ Ready to Start
+
 - Search console guides ready
 - Just need to create accounts and verify
 - Estimated time: 25 minutes
@@ -339,17 +367,20 @@
 ## 📞 Quick Reference
 
 ### Documentation Files (Review These)
+
 - PRIORITY3_SEO_GUIDE.md - Strategy and overview
 - SEO_METADATA_REFERENCE.md - Exact metadata for copy-paste
 
 ### Tools You'll Need
-- Facebook Debugger: https://developers.facebook.com/tools/debug/
-- Twitter Validator: https://cards-dev.twitter.com/validator
-- Google Analytics: https://analytics.google.com
-- Google Search Console: https://search.google.com/search-console
-- Bing Webmaster: https://www.bing.com/webmasters
+
+- Facebook Debugger: <https://developers.facebook.com/tools/debug/>
+- Twitter Validator: <https://cards-dev.twitter.com/validator>
+- Google Analytics: <https://analytics.google.com>
+- Google Search Console: <https://search.google.com/search-console>
+- Bing Webmaster: <https://www.bing.com/webmasters>
 
 ### Pages to Update (12 total)
+
 1. index.html 2. courses.html 3. grade-7.html 4. grade-8.html 5. grade-9.html
 6. contact.html 7. faq.html 8. terms.html 9. login.html 10. lesson-player.html
 11. 404.html 12. pages/about.html

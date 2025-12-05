@@ -41,6 +41,7 @@
 ### Phase 2: Page Updates (NEXT STEP)
 
 **Files to Update:** 12 pages
+
 1. index.html
 2. courses.html
 3. grade-7.html
@@ -55,6 +56,7 @@
 12. pages/about.html
 
 **For Each Page Add:**
+
 - [ ] Meta description (150-160 chars)
 - [ ] Meta keywords
 - [ ] Meta author
@@ -87,6 +89,7 @@
 ## 🔗 Social Sharing Setup
 
 ### Open Graph Tags ✅
+
 - All pages will have:
   - og:title
   - og:description
@@ -97,6 +100,7 @@
   - og:site_name
 
 ### Twitter Cards ✅
+
 - All pages will have:
   - twitter:card (summary_large_image)
   - twitter:title
@@ -105,6 +109,7 @@
   - twitter:site (@KhanpayeOloom)
 
 ### Structured Data ✅
+
 - Home page: Organization schema
 - All pages: WebPage schema
 - Course pages: Course schema (optional)
@@ -114,6 +119,7 @@
 ## 📊 Structured Data Implementation
 
 ### Organization Schema (Home Page)
+
 ```json
 {
   "@context": "https://schema.org",
@@ -129,6 +135,7 @@
 ```
 
 ### WebPage Schema (All Pages)
+
 ```json
 {
   "@context": "https://schema.org",
@@ -149,8 +156,9 @@
 ## 📈 Analytics Implementation
 
 ### Google Analytics Setup
+
 1. **Create Account:**
-   - Visit: https://analytics.google.com
+   - Visit: <https://analytics.google.com>
    - Sign in with Google account
    - Create property for: 0loum.ir
    - Get tracking ID: G-XXXXXXXXXX (GA4)
@@ -173,17 +181,19 @@
 ## 🔎 Search Console Submission
 
 ### Google Search Console
-1. Visit: https://search.google.com/search-console
+
+1. Visit: <https://search.google.com/search-console>
 2. Sign in with Google account
-3. Add property: https://0loum.ir
+3. Add property: <https://0loum.ir>
 4. Verify ownership (HTML file or DNS)
 5. Submit sitemap: /sitemap.xml
 6. Monitor search performance
 
 ### Bing Webmaster Tools
-1. Visit: https://www.bing.com/webmasters
+
+1. Visit: <https://www.bing.com/webmasters>
 2. Sign in
-3. Add site: https://0loum.ir
+3. Add site: <https://0loum.ir>
 4. Verify ownership
 5. Submit sitemap
 6. Monitor crawl stats
@@ -193,6 +203,7 @@
 ## ✅ Implementation Checklist
 
 ### Meta Tags (12 pages)
+
 - [ ] index.html - descriptions, keywords, Open Graph, Twitter
 - [ ] courses.html - descriptions, keywords, Open Graph, Twitter
 - [ ] grade-7.html - descriptions, keywords, Open Graph, Twitter
@@ -207,19 +218,23 @@
 - [ ] pages/about.html - descriptions, keywords, Open Graph, Twitter
 
 ### Structured Data
+
 - [ ] Add Organization schema to index.html
 - [ ] Add WebPage schema to all pages (optional but recommended)
 
 ### Sitemap & Robots
+
 - [x] sitemap.xml populated ✅
 - [x] robots.txt updated ✅
 
 ### Analytics
+
 - [ ] Create Google Analytics account (if not exists)
 - [ ] Get tracking ID
 - [ ] Add GA script to all pages
 
 ### Search Consoles
+
 - [ ] Submit to Google Search Console
 - [ ] Submit to Bing Webmaster Tools
 
@@ -228,24 +243,28 @@
 ## 🧪 Testing Checklist
 
 ### Meta Tag Testing
+
 - [ ] Test with Facebook Sharing Debugger
 - [ ] Test with Twitter Card Validator
 - [ ] Verify descriptions display correctly
 - [ ] Verify keywords are relevant
 
 ### Structured Data Testing
+
 - [ ] Test with Google Rich Results Test
 - [ ] Test with Schema.org Validator
 - [ ] Verify Organization schema valid
 - [ ] Verify WebPage schema valid
 
 ### Site Testing
+
 - [ ] Test mobile responsiveness
 - [ ] Test page load speed
 - [ ] Test all links work
 - [ ] Verify no broken images
 
 ### Analytics Testing
+
 - [ ] Verify GA script loads
 - [ ] Check real-time analytics
 - [ ] Verify page views tracked
@@ -256,6 +275,7 @@
 ## 📚 Resources Provided
 
 ### Documentation Files Created
+
 1. **PRIORITY3_SEO_GUIDE.md** (~500 lines)
    - Complete SEO strategy
    - Implementation steps
@@ -280,6 +300,7 @@
 ## 🎯 Success Metrics
 
 ### After Implementation
+
 - ✅ All 12 pages have meta descriptions
 - ✅ All pages have relevant keywords
 - ✅ Social sharing works (OG + Twitter)
@@ -289,6 +310,7 @@
 - ✅ No search console errors
 
 ### Expected Results (4-8 weeks)
+
 - Higher CTR in search results
 - Better social media sharing
 - Improved search visibility
@@ -299,7 +321,8 @@
 
 ## 📝 Page-by-Page Implementation Guide
 
-### For Each Page:
+### For Each Page
+
 1. Open page HTML in editor
 2. Find `<head>` section
 3. After `<meta name="viewport">` line
@@ -309,6 +332,7 @@
 7. Test with Facebook Debugger
 
 ### Time Estimate
+
 - ~3-5 minutes per page
 - 12 pages × 4 minutes = ~48 minutes total
 - Plus testing: ~1 hour
@@ -318,7 +342,7 @@
 
 ## 🚀 Quick Start
 
-### To Implement Immediately:
+### To Implement Immediately
 
 1. **Open editor** with your HTML files
 2. **Use SEO_METADATA_REFERENCE.md** as template
@@ -327,7 +351,7 @@
 5. **Save** all files
 6. **Test** with Facebook/Twitter debuggers
 
-### After Updates:
+### After Updates
 
 1. **Create Google Analytics account** (5 min)
 2. **Add GA script** to all pages (20 min)
@@ -340,6 +364,7 @@
 ## 📊 Current Status
 
 ### Completed ✅
+
 - [x] SEO Guide created
 - [x] Metadata reference created
 - [x] Sitemap.xml populated
@@ -347,12 +372,14 @@
 - [x] Implementation plan documented
 
 ### Ready to Begin ⏳
+
 - [ ] Add meta tags to 12 pages
 - [ ] Add structured data
 - [ ] Set up Google Analytics
 - [ ] Submit to search consoles
 
 ### Timeline
+
 - **Phase 2 (Meta tags):** 2-3 hours
 - **Phase 3 (Analytics):** 30 minutes
 - **Phase 4 (Search Console):** 20 minutes
@@ -363,23 +390,27 @@
 ## 🎓 Next Steps
 
 ### Immediate (Now)
+
 1. Review `SEO_METADATA_REFERENCE.md`
 2. Review `PRIORITY3_SEO_GUIDE.md`
 3. Gather metadata for each page
 
 ### Short-term (This week)
+
 1. Add meta tags to all 12 pages
 2. Test with debuggers
 3. Create Google Analytics account
 4. Add GA script
 
 ### Medium-term (Next 2 weeks)
+
 1. Submit sitemap to Google Search Console
 2. Submit to Bing Webmaster Tools
 3. Monitor search performance
 4. Optimize based on data
 
 ### Long-term (Monthly)
+
 1. Monitor analytics
 2. Check search console for issues
 3. Update keywords based on performance
@@ -390,6 +421,7 @@
 ## 💡 Best Practices
 
 ### Meta Descriptions
+
 - Unique for each page
 - 150-160 characters
 - Include main keyword
@@ -397,6 +429,7 @@
 - Natural language (not keyword stuffing)
 
 ### Keywords
+
 - 5-10 keywords per page
 - Mix of short and long-tail
 - Relevant to page content
@@ -404,12 +437,14 @@
 - Include variations
 
 ### Open Graph
+
 - Use page-specific images (if available)
 - Keep descriptions 155 characters max
 - Correct URLs (no trailing slashes)
 - Consistent across all pages
 
 ### Twitter Cards
+
 - summary_large_image recommended
 - Same content as OG tags
 - Include @handle for site
@@ -420,6 +455,7 @@
 ## ⚠️ Common Mistakes to Avoid
 
 ❌ **Don't:**
+
 - Copy same description on all pages
 - Stuff keywords unnaturally
 - Use broken image URLs
@@ -427,6 +463,7 @@
 - Add too many keywords (7+ is enough)
 
 ✅ **Do:**
+
 - Write unique descriptions
 - Use natural language
 - Test all images load
@@ -438,16 +475,18 @@
 ## 📞 Support & Resources
 
 ### Tools to Use
-1. **Facebook Debugger:** https://developers.facebook.com/tools/debug/
-2. **Twitter Validator:** https://cards-dev.twitter.com/validator
-3. **Schema Validator:** https://validator.schema.org/
-4. **Google Rich Results:** https://search.google.com/test/rich-results
-5. **Google PageSpeed:** https://pagespeed.web.dev/
+
+1. **Facebook Debugger:** <https://developers.facebook.com/tools/debug/>
+2. **Twitter Validator:** <https://cards-dev.twitter.com/validator>
+3. **Schema Validator:** <https://validator.schema.org/>
+4. **Google Rich Results:** <https://search.google.com/test/rich-results>
+5. **Google PageSpeed:** <https://pagespeed.web.dev/>
 
 ### Learning Resources
-- Google Search Central: https://developers.google.com/search
-- Schema.org Docs: https://schema.org/
-- Moz SEO: https://moz.com/beginners-guide-to-seo
+
+- Google Search Central: <https://developers.google.com/search>
+- Schema.org Docs: <https://schema.org/>
+- Moz SEO: <https://moz.com/beginners-guide-to-seo>
 
 ---
 
