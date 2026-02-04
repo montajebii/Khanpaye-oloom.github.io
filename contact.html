@@ -1,528 +1,133 @@
-<!doctype html>
+﻿<!doctype html>
 <html lang="fa" dir="rtl">
-
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>تماس با ما | خانه‌پایه می‌آموزد</title>
-
-  <!-- Google Fonts (Vazirmatn) -->
-  <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;700;800&display=swap" rel="stylesheet">
-
-  <style>
-    :root {
-      --bg-light: #f7f9fc;
-      --bg-white: #ffffff;
-      --primary: #6d5cff;
-      --primary-light: #f0eeff;
-      --secondary: #00c49a;
-      --text-dark: #1e293b;
-      --text-light: #64748b;
-      --border-color: #e2e8f0;
-      --shadow: 0 10px 30px rgba(0, 0, 0, 0.07);
-      --radius-md: 16px;
-      --radius-lg: 24px;
-      --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-    }
-
-    /* ====== Base & Header & Footer Styles (کپی شده از صفحه اصلی برای یکپارچگی) ====== */
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    body {
-      font-family: "Vazirmatn", sans-serif;
-      background: var(--bg-light);
-      color: var(--text-dark);
-      line-height: 1.8;
-      -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
-      overflow-x: hidden;
-    }
-
-    body.menu-open {
-      overflow: hidden;
-    }
-
-    .wrap {
-      max-width: 1140px;
-      margin: 0 auto;
-      padding: 0 20px;
-    }
-
-    .site-header {
-      padding: 20px 0;
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      background: rgba(247, 249, 252, 0.8);
-      backdrop-filter: blur(12px);
-      border-bottom: 1px solid var(--border-color);
-    }
-
-    .header-inner {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-
-    .brand {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-    }
-
-    .brand .mark {
-      width: 48px;
-      height: 48px;
-      border-radius: 12px;
-      display: grid;
-      place-items: center;
-      background: var(--primary);
-      color: #fff;
-      font-weight: 800;
-      font-size: 1.4rem;
-    }
-
-    .brand-title {
-      font-weight: 700;
-      font-size: 1.2rem;
-    }
-
-    .main-nav {
-      display: none;
-    }
-
-    /* Hide on mobile, shown on desktop */
-    .main-nav a {
-      color: var(--text-light);
-      text-decoration: none;
-      margin-right: 28px;
-      font-weight: 500;
-      transition: var(--transition);
-    }
-
-    .main-nav a:hover,
-    .main-nav a.active {
-      color: var(--primary);
-      font-weight: 700;
-    }
-
-    .header-actions {
-      display: none;
-    }
-
-    /* Hide on mobile */
-    .btn {
-      padding: 12px 24px;
-      border-radius: 12px;
-      font-weight: 700;
-      text-decoration: none;
-      border: none;
-      cursor: pointer;
-      transition: var(--transition);
-      display: inline-block;
-    }
-
-    .btn-primary {
-      background: var(--primary);
-      color: #fff;
-      box-shadow: 0 8px 20px rgba(109, 92, 255, 0.3);
-    }
-
-    .btn-primary:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 10px 25px rgba(109, 92, 255, 0.4);
-    }
-
-    .hamburger-menu {
-      display: block;
-      background: none;
-      border: none;
-      cursor: pointer;
-      font-size: 2rem;
-      color: var(--text-dark);
-    }
-
-    .site-footer {
-      padding: 50px 0;
-      background: #131b2b;
-      color: #a0aec0;
-      margin-top: 80px;
-    }
-
-    .footer-content {
-      text-align: center;
-    }
-
-    .footer-content .brand {
-      justify-content: center;
-      margin-bottom: 20px;
-    }
-
-    .footer-content .brand-title,
-    .footer-content p {
-      color: #e2e8f0;
-    }
-
-    .footer-links {
-      margin: 24px 0;
-      display: flex;
-      justify-content: center;
-      gap: 24px;
-      flex-wrap: wrap;
-    }
-
-    .footer-links a {
-      color: #a0aec0;
-      text-decoration: none;
-    }
-
-    .footer-links a:hover {
-      color: #fff;
-    }
-
-    .copyright {
-      font-size: 0.9rem;
-      border-top: 1px solid #2d3748;
-      padding-top: 24px;
-      margin-top: 24px;
-    }
-
-    /* Mobile Menu Styles */
-    .mobile-nav-container {
-      position: fixed;
-      inset: 0;
-      z-index: 200;
-      visibility: hidden;
-    }
-
-    .mobile-nav-backdrop {
-      position: absolute;
-      inset: 0;
-      background: rgba(0, 0, 0, 0.5);
-      opacity: 0;
-      transition: opacity 0.3s ease;
-    }
-
-    .mobile-nav {
-      position: absolute;
-      top: 0;
-      right: 0;
-      width: 280px;
-      max-width: 80%;
-      height: 100%;
-      background: var(--bg-white);
-      padding: 24px;
-      transform: translateX(100%);
-      transition: transform 0.3s ease;
-      display: flex;
-      flex-direction: column;
-    }
-
-    .mobile-nav-container.open {
-      visibility: visible;
-    }
-
-    .mobile-nav-container.open .mobile-nav-backdrop {
-      opacity: 1;
-    }
-
-    .mobile-nav-container.open .mobile-nav {
-      transform: translateX(0);
-    }
-
-    .mobile-nav-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 32px;
-    }
-
-    .mobile-nav .close-btn {
-      background: none;
-      border: none;
-      font-size: 2rem;
-      cursor: pointer;
-      color: var(--text-light);
-    }
-
-    .mobile-nav a {
-      display: block;
-      padding: 12px 0;
-      font-size: 1.1rem;
-      font-weight: 500;
-      color: var(--text-dark);
-      text-decoration: none;
-      border-bottom: 1px solid var(--border-color);
-    }
-
-    .mobile-nav a:hover {
-      color: var(--primary);
-    }
-
-    @media (min-width: 992px) {
-
-      .main-nav,
-      .header-actions {
-        display: block;
-      }
-
-      .hamburger-menu {
-        display: none;
-      }
-    }
-
-    /* ====== Page Specific Styles for Contact Page ====== */
-    .page-header {
-      text-align: center;
-      padding: 60px 0;
-    }
-
-    .page-header h1 {
-      font-size: 2.8rem;
-      font-weight: 800;
-      margin-bottom: 8px;
-    }
-
-    .page-header p {
-      font-size: 1.1rem;
-      color: var(--text-light);
-      max-width: 500px;
-      margin: 0 auto;
-    }
-
-    .contact-main {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 48px;
-      background: var(--bg-white);
-      padding: 40px;
-      border-radius: var(--radius-lg);
-      box-shadow: var(--shadow);
-    }
-
-    @media (min-width: 992px) {
-      .contact-main {
-        grid-template-columns: 2fr 1fr;
-        padding: 60px;
-      }
-    }
-
-    .contact-form h3 {
-      font-size: 1.8rem;
-      font-weight: 700;
-      margin-bottom: 24px;
-    }
-
-    .form-group {
-      margin-bottom: 20px;
-    }
-
-    .form-group label {
-      display: block;
-      font-weight: 500;
-      margin-bottom: 8px;
-    }
-
-    .form-control {
-      width: 100%;
-      padding: 14px;
-      border: 1px solid var(--border-color);
-      border-radius: 12px;
-      font-family: "Vazirmatn", sans-serif;
-      font-size: 1rem;
-      transition: var(--transition);
-    }
-
-    .form-control:focus {
-      outline: none;
-      border-color: var(--primary);
-      box-shadow: 0 0 0 3px var(--primary-light);
-    }
-
-    textarea.form-control {
-      min-height: 150px;
-      resize: vertical;
-    }
-
-    .contact-info h3 {
-      font-size: 1.8rem;
-      font-weight: 700;
-      margin-bottom: 24px;
-    }
-
-    .info-item {
-      display: flex;
-      align-items: center;
-      gap: 16px;
-      margin-bottom: 24px;
-    }
-
-    .info-item .icon {
-      width: 48px;
-      height: 48px;
-      background: var(--primary-light);
-      color: var(--primary);
-      border-radius: 50%;
-      display: grid;
-      place-items: center;
-      flex-shrink: 0;
-    }
-
-    .info-item .icon svg {
-      width: 24px;
-      height: 24px;
-    }
-
-    .info-item a {
-      text-decoration: none;
-      color: var(--text-dark);
-      font-weight: 500;
-    }
-
-    .info-item a:hover {
-      color: var(--primary);
-    }
-  </style>
+  <title>ارتباط با خان‌پایه</title>
+  <meta name="description" content="درخواست مشاوره آموزشی، ارسال سوال یا پیشنهاد از طریق فرم تماس خان‌پایه." />
+  <meta name="keywords" content="تماس با دبیر علوم, مشاوره آموزشی, ارتباط خان‌پایه" />
+  <meta name="author" content="خان‌پایه" />
+  <meta name="robots" content="index,follow" />
+  <meta name="theme-color" content="#0f6a5f" />
+  <link rel="canonical" href="https://khanpaye-oloom.github.io/contact.html" />
+  <link rel="icon" href="favicon.ico" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/CSS/style.css" />
+  <meta property="og:title" content="ارتباط با خان‌پایه" />
+  <meta property="og:description" content="ثبت مشاوره و ارتباط مستقیم با دبیر علوم خان‌پایه." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://khanpaye-oloom.github.io/contact.html" />
+  <meta property="og:image" content="https://khanpaye-oloom.github.io/assets/images/hero.jpg" />
+  <meta property="og:site_name" content="خان‌پایه" />
+  <meta property="og:locale" content="fa_IR" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="ارتباط با خان‌پایه" />
+  <meta name="twitter:description" content="ثبت مشاوره و ارتباط مستقیم با دبیر علوم خان‌پایه." />
+  <meta name="twitter:image" content="https://khanpaye-oloom.github.io/assets/images/hero.jpg" />
 </head>
-
 <body>
+  <a class="skip-link" href="#content">رفتن به محتوا</a>
+  <header class="site-header">
+    <div class="wrap header-inner">
+      <div class="brand">
+        <div class="brand-mark">خ</div>
+        <div class="brand-title">
+          خان‌پایه
+          <span>علوم 0 تا 100</span>
+        </div>
+      </div>
+      <nav class="main-nav" aria-label="منوی اصلی">
+        <a href="index.html">خانه</a>
+        <a href="library.html">کتابخانه</a>
+        <a href="about.html">درباره دبیر</a>
+        <a class="active" href="contact.html">ارتباط</a>
+      </nav>
+      <div class="header-actions">
+        <a class="btn btn-ghost" href="library.html">مشاهده محتوا</a>
+        <a class="btn btn-primary" href="mailto:info@khanpaye.ir">ارسال ایمیل</a>
+      </div>
+      <button class="mobile-toggle" type="button" data-mobile-toggle aria-label="باز کردن منو">☰</button>
+    </div>
+  </header>
 
-  <script>
-    // Live reload script
-    document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snip=1"></' + 'script>')
-  </script>
-
-  <div data-include="/components/header.html"></div>
-  <a href="contact.html" class="active">تماس با ما</a>
-  <a href="login.html"
-    style="margin-top: 24px; background: var(--primary); color: #fff; text-align:center; border-radius: 12px; padding: 12px;">ورود
-    دانش‌آموزان</a>
-  </nav>
+  <div class="mobile-panel" data-mobile-panel>
+    <nav aria-label="منوی موبایل">
+      <a href="index.html">خانه</a>
+      <a href="library.html">کتابخانه</a>
+      <a href="about.html">درباره دبیر</a>
+      <a href="contact.html">ارتباط</a>
+      <a class="btn btn-primary" href="mailto:info@khanpaye.ir">ارسال ایمیل</a>
+    </nav>
   </div>
 
-  <main>
-    <div class="page-header">
+  <main id="content">
+    <section class="section">
+      <div class="wrap hero-grid">
+        <div>
+          <h1>در تماس باشیم.</h1>
+          <p>برای دریافت مشاوره، ثبت‌نام در برنامه‌های آموزشی یا ارسال سوالات، از فرم زیر استفاده کنید.</p>
+          <div class="stats">
+            <div class="stat-card">
+              <strong>پاسخ‌گویی ۲۴ ساعته</strong>
+              <span>پیگیری سریع پیام‌ها</span>
+            </div>
+            <div class="stat-card">
+              <strong>مشاوره اختصاصی</strong>
+              <span>برنامه شخصی برای هر دانش‌آموز</span>
+            </div>
+          </div>
+        </div>
+        <div class="hero-card reveal">
+          <span class="hero-badge">پشتیبانی آنلاین</span>
+          <img src="assets/images/hero.jpg" alt="ارتباط با دبیر" loading="lazy" />
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
       <div class="wrap">
-        <h1>با ما در ارتباط باشید</h1>
-        <p>سوال، پیشنهاد یا انتقادی دارید؟ از طریق فرم زیر یا راه‌های ارتباطی دیگر، پیام خود را به ما برسانید.</p>
+        <h2 class="section-title">فرم تماس</h2>
+        <p class="section-subtitle">پیام شما در سریع‌ترین زمان پاسخ داده می‌شود.</p>
+        <form class="form-grid" action="https://formspree.io/f/your-form-id" method="POST">
+          <input type="text" name="name" placeholder="نام و نام خانوادگی" required />
+          <input type="email" name="email" placeholder="ایمیل" required />
+          <input type="tel" name="phone" placeholder="شماره تماس" />
+          <textarea name="message" placeholder="پیام شما" required></textarea>
+          <button class="btn btn-primary" type="submit">ارسال پیام</button>
+        </form>
       </div>
-    </div>
-
-    <div class="wrap">
-      <div class="contact-main">
-        <!-- Contact Form -->
-        <div class="contact-form">
-          <h3>ارسال پیام</h3>
-          <form action="https://formspree.io/f/mzzyekpv" method="POST">
-            <input type="hidden" name="_subject" value="خانه‌پایه: پیام تماسی جدید">
-            <input type="hidden" name="_captcha" value="false">
-            <div class="form-group">
-              <label for="name">نام شما</label>
-              <input type="text" id="name" name="name" class="form-control" required placeholder="نام و نام خانوادگی">
-            </div>
-            <div class="form-group">
-              <label for="email">ایمیل شما</label>
-              <input type="email" id="email" name="email" class="form-control" required placeholder="example@gmail.com">
-            </div>
-            <div class="form-group">
-              <label for="message">متن پیام</label>
-              <textarea id="message" name="message" class="form-control" required
-                placeholder="پیام خود را بنویسید..."></textarea>
-            </div>
-            <button type="submit" class="btn btn-primary" style="width: 100%;">ارسال پیام</button>
-          </form>
-        </div>
-
-        <!-- Contact Info -->
-        <div class="contact-info">
-          <h3>اطلاعات تماس</h3>
-          <div class="info-item">
-            <div class="icon">
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
-                <polyline points="22,6 12,13 2,6"></polyline>
-              </svg>
-            </div>
-            <div>
-              <strong>ایمیل</strong><br>
-              <a href="mailto:info@khane-paye.com">info@khane-paye.com</a>
-            </div>
-          </div>
-          <div class="info-item">
-            <div class="icon">
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
-              </svg>
-            </div>
-            <div>
-              <strong>شبکه اجتماعی</strong><br>
-              <a href="#">@khane-paye-amoozesh</a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+    </section>
   </main>
 
   <footer class="site-footer">
-    <div class="wrap footer-content">
-      <a href="index.html" class="brand" style="text-decoration: none; color: inherit;">
-        <div class="mark" aria-hidden="true">ع</div>
-        <span class="brand-title">خانه‌پایه می‌آموزد</span>
-      </a>
-      <p>ما به آموزش باکیفیت و در دسترس برای همه دانش‌آموزان ایرانی باور داریم.</p>
-      <div class="footer-links">
-        <a href="terms.html">قوانین و مقررات</a>
-        <a href="faq.html">سوالات متداول</a>
-        <a href="contact.html">تماس با ما</a>
+    <div class="wrap">
+      <div class="footer-grid">
+        <div>
+          <h4>خان‌پایه</h4>
+          <p>پلتفرم آموزش علوم برای پایه‌های هفتم تا نهم.</p>
+        </div>
+        <div>
+          <h4>راه‌های ارتباطی</h4>
+          <a href="mailto:info@khanpaye.ir">info@khanpaye.ir</a>
+          <a href="tel:+989000000000">+98 900 000 0000</a>
+          <span>تهران، ایران</span>
+        </div>
+        <div>
+          <h4>شبکه‌های اجتماعی</h4>
+          <a href="#">اینستاگرام</a>
+          <a href="#">تلگرام</a>
+          <a href="#">آپارات</a>
+        </div>
       </div>
-      <div class="copyright">
-        © <span id="copy-year"></span> خانه‌پایه می‌آموزد. تمامی حقوق محفوظ است.
+      <div class="footer-bottom">
+        <span>© <span data-year></span> خان‌پایه. همه حقوق محفوظ است.</span>
+        <span>همراه همیشگی یادگیری</span>
       </div>
     </div>
   </footer>
 
-  <script>
-    document.addEventListener('DOMContentLoaded', function () {
-      // Set current year in footer
-      document.getElementById('copy-year').textContent = new Date().getFullYear();
-
-      // Mobile Menu Logic
-      const hamburgerBtn = document.getElementById('hamburgerBtn');
-      const mobileNavContainer = document.getElementById('mobileNavContainer');
-      const closeBtn = document.getElementById('closeBtn');
-      const backdrop = document.querySelector('.mobile-nav-backdrop');
-
-      const openMenu = () => {
-        mobileNavContainer.classList.add('open');
-        mobileNavContainer.setAttribute('aria-hidden', 'false');
-        document.body.classList.add('menu-open');
-      };
-
-      const closeMenu = () => {
-        mobileNavContainer.classList.remove('open');
-        mobileNavContainer.setAttribute('aria-hidden', 'true');
-        document.body.classList.remove('menu-open');
-      };
-
-      hamburgerBtn.addEventListener('click', openMenu);
-      closeBtn.addEventListener('click', closeMenu);
-      backdrop.addEventListener('click', closeMenu);
-
-      document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape' && mobileNavContainer.classList.contains('open')) {
-          closeMenu();
-        }
-      });
-    });
-  </script>
-
+  <script src="assets/JS/main.js"></script>
 </body>
-
 </html>

@@ -1,146 +1,126 @@
-// Simple client-side include utility: loads HTML fragments into elements with `data-include` attribute
-async function includeHTML() {
-  const nodes = document.querySelectorAll("[data-include]");
-  await Promise.all(
-    Array.from(nodes).map(async (el) => {
-      const url = el.getAttribute("data-include");
-      try {
-        const res = await fetch(url);
-        if (!res.ok) throw new Error("Failed to load " + url);
-        const html = await res.text();
-        el.innerHTML = html;
-      } catch (err) {
-        console.error(err);
-      }
-    })
-  );
-}
+﻿(function () {
+  const mobileToggle = document.querySelector("[data-mobile-toggle]");
+  const mobilePanel = document.querySelector("[data-mobile-panel]");
 
-function initHeaderMenu() {
-  const hamburgerBtn = document.getElementById("hamburgerBtn");
-  const mobileNavContainer = document.getElementById("mobileNavContainer");
-  const closeBtn = document.getElementById("closeBtn");
-  const backdrop = document.querySelector(".mobile-nav-backdrop");
-  if (!hamburgerBtn || !mobileNavContainer) return;
+  if (mobileToggle && mobilePanel) {
+    mobileToggle.setAttribute("aria-expanded", "false");
+    mobileToggle.setAttribute("aria-controls", "mobile-panel");
+    mobilePanel.setAttribute("id", "mobile-panel");
 
-  const openMenu = () => {
-    mobileNavContainer.classList.add("open");
-    mobileNavContainer.setAttribute("aria-hidden", "false");
-    document.body.classList.add("menu-open");
-  };
-  const closeMenu = () => {
-    mobileNavContainer.classList.remove("open");
-    mobileNavContainer.setAttribute("aria-hidden", "true");
-    document.body.classList.remove("menu-open");
-  };
+    mobileToggle.addEventListener("click", () => {
+      const isOpen = mobilePanel.classList.toggle("open");
+      document.body.classList.toggle("menu-open", isOpen);
+      mobileToggle.setAttribute("aria-expanded", String(isOpen));
+    });
 
-  hamburgerBtn.addEventListener("click", openMenu);
-  if (closeBtn) closeBtn.addEventListener("click", closeMenu);
-  if (backdrop) backdrop.addEventListener("click", closeMenu);
-  document.addEventListener("keydown", (e) => {
-    if (e.key === "Escape" && mobileNavContainer.classList.contains("open")) {
-      closeMenu();
-    }
-  });
-}
-
-// ========== Form Validation Functions ==========
-
-function validateField() {
-  const input = this;
-  const value = input.value.trim();
-
-  if (input.id === "name" && value.length < 2) {
-    showFieldError(input, "نام باید حداقل 2 حرف باشد");
-    return false;
-  }
-
-  if (input.id === "email") {
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!emailRegex.test(value)) {
-      showFieldError(input, "لطفاً یک ایمیل معتبر وارد کنید");
-      return false;
-    }
-  }
-
-  if (input.id === "message" && value.length < 10) {
-    showFieldError(input, "پیام باید حداقل 10 حرف باشد");
-    return false;
-  }
-
-  clearFieldError(input);
-  return true;
-}
-
-function showFieldError(input, message) {
-  clearFieldError(input);
-  const errorDiv = document.createElement("div");
-  errorDiv.className = "form-error";
-  errorDiv.textContent = message;
-  input.classList.add("error");
-  input.parentNode.appendChild(errorDiv);
-}
-
-function clearFieldError(input) {
-  const error = input.parentNode.querySelector(".form-error");
-  if (error) error.remove();
-  input.classList.remove("error");
-}
-
-function clearError() {
-  clearFieldError(this);
-}
-
-function showError(message) {
-  const form = document.querySelector('form[action*="formspree"]');
-  if (!form) return;
-  const existing = form.querySelector(".form-message");
-  if (existing) existing.remove();
-  const errorDiv = document.createElement("div");
-  errorDiv.className = "form-message form-error";
-  errorDiv.textContent = message;
-  form.insertBefore(errorDiv, form.firstChild);
-  setTimeout(() => errorDiv.remove(), 5000);
-}
-
-function initFormValidation() {
-  const form = document.querySelector('form[action*="formspree"]');
-  if (!form) return;
-  const inputs = form.querySelectorAll("input[required], textarea[required]");
-  inputs.forEach((input) => {
-    input.addEventListener("blur", validateField);
-    input.addEventListener("input", clearError);
-  });
-  form.addEventListener("submit", (e) => {
-    let isValid = true;
-    inputs.forEach((input) => {
-      if (!validateField.call(input)) {
-        isValid = false;
+    mobilePanel.addEventListener("click", (event) => {
+      if (event.target === mobilePanel) {
+        mobilePanel.classList.remove("open");
+        document.body.classList.remove("menu-open");
+        mobileToggle.setAttribute("aria-expanded", "false");
       }
     });
-    if (!isValid) {
-      e.preventDefault();
-      showError("لطفاً تمام فیلدها را صحیح پر کنید");
-    }
+
+    mobilePanel.querySelectorAll("a").forEach((link) => {
+      link.addEventListener("click", () => {
+        mobilePanel.classList.remove("open");
+        document.body.classList.remove("menu-open");
+        mobileToggle.setAttribute("aria-expanded", "false");
+      });
+    });
+
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "Escape" && mobilePanel.classList.contains("open")) {
+        mobilePanel.classList.remove("open");
+        document.body.classList.remove("menu-open");
+        mobileToggle.setAttribute("aria-expanded", "false");
+      }
+    });
+  }
+
+  const yearEl = document.querySelector("[data-year]");
+  if (yearEl) {
+    yearEl.textContent = new Date().getFullYear();
+  }
+
+  const revealItems = document.querySelectorAll(".reveal");
+  if (revealItems.length) {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("visible");
+          }
+        });
+      },
+      { threshold: 0.2 },
+    );
+
+    revealItems.forEach((item) => observer.observe(item));
+  }
+
+  const libraryGrid = document.querySelector("[data-library-grid]");
+  if (!libraryGrid || !window.LibraryItems) {
+    return;
+  }
+
+  const filterGrade = document.querySelector("[data-filter-grade]");
+  const filterType = document.querySelector("[data-filter-type]");
+  const filterTopic = document.querySelector("[data-filter-topic]");
+  const filterSearch = document.querySelector("[data-filter-search]");
+
+  const applyFilters = () => {
+    const grade = filterGrade ? filterGrade.value : "all";
+    const type = filterType ? filterType.value : "all";
+    const topic = filterTopic ? filterTopic.value : "all";
+    const query = filterSearch ? filterSearch.value.trim().toLowerCase() : "";
+
+    const results = window.LibraryItems.filter((item) => {
+      const matchesGrade = grade === "all" || item.grade === grade;
+      const matchesType = type === "all" || item.type === type;
+      const matchesTopic = topic === "all" || item.topic === topic;
+      const matchesQuery =
+        !query ||
+        item.title.toLowerCase().includes(query) ||
+        item.summary.toLowerCase().includes(query);
+      return matchesGrade && matchesType && matchesTopic && matchesQuery;
+    });
+
+    libraryGrid.innerHTML = results
+      .map((item) => {
+        const actions = [];
+        if (item.link && item.action) {
+          actions.push(
+            `<a class="btn btn-primary" href="${item.link}">${item.action}</a>`,
+          );
+        }
+        if (item.secondaryLink && item.secondaryAction) {
+          actions.push(
+            `<a class="btn btn-ghost" href="${item.secondaryLink}">${item.secondaryAction}</a>`,
+          );
+        }
+
+        return `
+          <article class="library-card">
+            <span class="tag">${item.typeLabel}</span>
+            <h3>${item.title}</h3>
+            <p>${item.summary}</p>
+            <div class="library-meta">
+              <span>پایه ${item.grade}</span>
+              <span>${item.duration}</span>
+              <span>${item.level}</span>
+            </div>
+            ${actions.length ? `<div class="actions">${actions.join("")}</div>` : ""}
+          </article>
+        `;
+      })
+      .join("");
+  };
+
+  [filterGrade, filterType, filterTopic, filterSearch].forEach((control) => {
+    if (!control) return;
+    control.addEventListener("input", applyFilters);
   });
-}
 
-// ========== Initialize Everything ==========
-
-document.addEventListener("DOMContentLoaded", async () => {
-  await includeHTML();
-  initHeaderMenu();
-  const copyYear = document.getElementById("copy-year");
-  if (copyYear) copyYear.textContent = new Date().getFullYear();
-  initFormValidation();
-});
-
-window.__kp = {
-  includeHTML,
-  initHeaderMenu,
-  validateField,
-  showFieldError,
-  clearFieldError,
-  showError,
-  initFormValidation,
-};
+  applyFilters();
+})();

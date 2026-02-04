@@ -1,552 +1,314 @@
-<!doctype html>
+﻿<!doctype html>
 <html lang="fa" dir="rtl">
-
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>خانه‌پایه می‌آموزد | آموزش شیرین علوم</title>
-
-  <!-- Google Fonts (Vazirmatn) -->
-  <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;700;800&display=swap" rel="stylesheet">
-
-  <style>
-    :root {
-      --bg-light: #f7f9fc;
-      --bg-white: #ffffff;
-      --primary: #6d5cff;
-      --primary-light: #f0eeff;
-      --secondary: #00c49a;
-      --text-dark: #1e293b;
-      --text-light: #64748b;
-      --border-color: #e2e8f0;
-      --shadow: 0 10px 30px rgba(0, 0, 0, 0.07);
-      --radius-md: 16px;
-      --radius-lg: 24px;
-      --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  <title>خان‌پایه | علوم 0 تا 100</title>
+  <meta name="description" content="پلتفرم آموزش علوم برای پایه‌های هفتم تا نهم؛ ویدیوهای کوتاه، جزوه‌های طبقه‌بندی‌شده و تمرین‌های هدفمند." />
+  <meta name="keywords" content="علوم 0 تا 100, آموزش علوم, پایه هفتم, پایه هشتم, پایه نهم, ویدیو آموزشی, جزوه علوم" />
+  <meta name="author" content="خان‌پایه" />
+  <meta name="robots" content="index,follow" />
+  <meta name="theme-color" content="#0f6a5f" />
+  <link rel="canonical" href="https://khanpaye-oloom.github.io/" />
+  <link rel="icon" href="favicon.ico" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/CSS/style.css" />
+  <link rel="manifest" href="manifest.webmanifest" />
+  <meta property="og:title" content="خان‌پایه | علوم 0 تا 100" />
+  <meta property="og:description" content="ویدیوهای کوتاه، جزوه‌های طبقه‌بندی‌شده و تمرین‌های هدفمند برای دانش‌آموزان متوسطه اول." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://khanpaye-oloom.github.io/" />
+  <meta property="og:image" content="https://khanpaye-oloom.github.io/assets/images/hero.jpg" />
+  <meta property="og:site_name" content="خان‌پایه" />
+  <meta property="og:locale" content="fa_IR" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="خان‌پایه | علوم 0 تا 100" />
+  <meta name="twitter:description" content="ویدیوهای کوتاه، جزوه‌های طبقه‌بندی‌شده و تمرین‌های هدفمند برای دانش‌آموزان متوسطه اول." />
+  <meta name="twitter:image" content="https://khanpaye-oloom.github.io/assets/images/hero.jpg" />
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "EducationalOrganization",
+      "name": "خان‌پایه",
+      "description": "پلتفرم آموزش علوم برای پایه‌های هفتم تا نهم",
+      "url": "https://khanpaye-oloom.github.io/",
+      "logo": "https://khanpaye-oloom.github.io/assets/images/hero.jpg"
     }
-
-    /* ====== Styles are identical to the last version of Code 1 ====== */
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    body {
-      font-family: "Vazirmatn", sans-serif;
-      background: var(--bg-light);
-      color: var(--text-dark);
-      line-height: 1.8;
-      -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
-      overflow-x: hidden;
-    }
-
-    body.menu-open {
-      overflow: hidden;
-    }
-
-    .wrap {
-      max-width: 1140px;
-      margin: 0 auto;
-      padding: 0 20px;
-    }
-
-    img {
-      max-width: 100%;
-      height: auto;
-    }
-
-    .site-header {
-      padding: 20px 0;
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      background: rgba(247, 249, 252, 0.8);
-      backdrop-filter: blur(12px);
-      border-bottom: 1px solid var(--border-color);
-    }
-
-    .header-inner {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-
-    .brand {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-    }
-
-    .brand .mark {
-      width: 48px;
-      height: 48px;
-      border-radius: 12px;
-      display: grid;
-      place-items: center;
-      background: var(--primary);
-      color: #fff;
-      font-weight: 800;
-      font-size: 1.4rem;
-    }
-
-    .brand-title {
-      font-weight: 700;
-      font-size: 1.2rem;
-    }
-
-    .main-nav a {
-      color: var(--text-light);
-      text-decoration: none;
-      margin-right: 28px;
-      font-weight: 500;
-      transition: var(--transition);
-    }
-
-    .main-nav a:hover,
-    .main-nav a.active {
-      color: var(--primary);
-      font-weight: 700;
-    }
-
-    .btn {
-      padding: 12px 24px;
-      border-radius: 12px;
-      font-weight: 700;
-      text-decoration: none;
-      border: none;
-      cursor: pointer;
-      transition: var(--transition);
-      display: inline-block;
-    }
-
-    .btn-primary {
-      background: var(--primary);
-      color: #fff;
-      box-shadow: 0 8px 20px rgba(109, 92, 255, 0.3);
-    }
-
-    .btn-primary:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 10px 25px rgba(109, 92, 255, 0.4);
-    }
-
-    .hero {
-      padding: 60px 0;
-    }
-
-    .hero-content {
-      display: grid;
-      grid-template-columns: 1fr;
-      align-items: center;
-      gap: 40px;
-      text-align: center;
-    }
-
-    .hero h1 {
-      font-size: clamp(2.5rem, 5vw, 3.5rem);
-      font-weight: 800;
-      line-height: 1.3;
-      margin-bottom: 20px;
-    }
-
-    .hero h1 .highlight {
-      color: var(--primary);
-    }
-
-    .hero p {
-      max-width: 500px;
-      margin: 0 auto 32px;
-      font-size: 1.1rem;
-      color: var(--text-light);
-    }
-
-    .hero-image {
-      max-width: 500px;
-      margin: 0 auto;
-    }
-
-    .features,
-    .courses {
-      padding: 60px 0;
-    }
-
-    .section-title {
-      text-align: center;
-      margin-bottom: 48px;
-      font-size: 2.2rem;
-      font-weight: 800;
-    }
-
-    .features-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 24px;
-    }
-
-    .feature-card {
-      background: var(--bg-white);
-      padding: 32px;
-      border-radius: var(--radius-md);
-      text-align: center;
-      box-shadow: var(--shadow);
-    }
-
-    .feature-card .icon {
-      width: 64px;
-      height: 64px;
-      margin: 0 auto 20px;
-      background: var(--primary-light);
-      border-radius: 50%;
-      display: grid;
-      place-items: center;
-    }
-
-    .feature-card .icon svg {
-      width: 32px;
-      height: 32px;
-      color: var(--primary);
-    }
-
-    .feature-card h3 {
-      font-size: 1.2rem;
-      font-weight: 700;
-      margin-bottom: 8px;
-    }
-
-    .feature-card p {
-      color: var(--text-light);
-      font-size: 0.95rem;
-    }
-
-    .courses-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-      gap: 32px;
-    }
-
-    .course-card {
-      background: var(--bg-white);
-      border-radius: var(--radius-lg);
-      overflow: hidden;
-      box-shadow: var(--shadow);
-      transition: var(--transition);
-      display: flex;
-      flex-direction: column;
-    }
-
-    .course-card:hover {
-      transform: translateY(-8px);
-    }
-
-    .course-card .banner {
-      padding: 40px 24px;
-      text-align: center;
-      color: #fff;
-    }
-
-    .course-card.grade-7 .banner {
-      background: linear-gradient(135deg, #00c49a, #00a080);
-    }
-
-    .course-card.grade-8 .banner {
-      background: linear-gradient(135deg, #3a86ff, #2a6fdb);
-    }
-
-    .course-card.grade-9 .banner {
-      background: linear-gradient(135deg, #ff7b5c, #f75c40);
-    }
-
-    .course-card .grade-level {
-      font-size: 1.5rem;
-      font-weight: 800;
-      margin-bottom: 8px;
-    }
-
-    .course-card .title {
-      font-size: 1rem;
-      font-weight: 500;
-      opacity: 0.9;
-    }
-
-    .course-card .content {
-      padding: 24px;
-      flex-grow: 1;
-      display: flex;
-      flex-direction: column;
-    }
-
-    .course-card .description {
-      color: var(--text-light);
-      margin-bottom: 24px;
-      flex-grow: 1;
-    }
-
-    .course-card .price {
-      font-size: 1.8rem;
-      font-weight: 800;
-      color: var(--text-dark);
-      margin-bottom: 16px;
-    }
-
-    .course-card .btn {
-      width: 100%;
-    }
-
-    .site-footer {
-      padding: 50px 0;
-      background: #131b2b;
-      color: #a0aec0;
-      margin-top: 80px;
-    }
-
-    .footer-content {
-      text-align: center;
-    }
-
-    .footer-content .brand {
-      justify-content: center;
-      margin-bottom: 20px;
-    }
-
-    .footer-content .brand-title,
-    .footer-content p {
-      color: #e2e8f0;
-    }
-
-    .footer-links {
-      margin: 24px 0;
-      display: flex;
-      justify-content: center;
-      gap: 24px;
-      flex-wrap: wrap;
-    }
-
-    .footer-links a {
-      color: #a0aec0;
-      text-decoration: none;
-    }
-
-    .footer-links a:hover {
-      color: #fff;
-    }
-
-    .copyright {
-      font-size: 0.9rem;
-      border-top: 1px solid #2d3748;
-      padding-top: 24px;
-      margin-top: 24px;
-    }
-
-    .hamburger-menu {
-      display: none;
-    }
-
-    .mobile-nav-container {
-      position: fixed;
-      inset: 0;
-      z-index: 200;
-      visibility: hidden;
-    }
-
-    .mobile-nav-backdrop {
-      position: absolute;
-      inset: 0;
-      background: rgba(0, 0, 0, 0.5);
-      opacity: 0;
-      transition: opacity 0.3s ease;
-    }
-
-    .mobile-nav {
-      position: absolute;
-      top: 0;
-      right: 0;
-      width: 280px;
-      max-width: 80%;
-      height: 100%;
-      background: var(--bg-white);
-      padding: 24px;
-      transform: translateX(100%);
-      transition: transform 0.3s ease;
-      display: flex;
-      flex-direction: column;
-    }
-
-    .mobile-nav-container.open {
-      visibility: visible;
-    }
-
-    .mobile-nav-container.open .mobile-nav-backdrop {
-      opacity: 1;
-    }
-
-    .mobile-nav-container.open .mobile-nav {
-      transform: translateX(0);
-    }
-
-    .mobile-nav-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 32px;
-    }
-
-    .mobile-nav .close-btn {
-      background: none;
-      border: none;
-      font-size: 2rem;
-      cursor: pointer;
-      color: var(--text-light);
-    }
-
-    .mobile-nav a {
-      display: block;
-      padding: 12px 0;
-      font-size: 1.1rem;
-      font-weight: 500;
-      color: var(--text-dark);
-      text-decoration: none;
-      border-bottom: 1px solid var(--border-color);
-    }
-
-    @media (min-width: 992px) {
-      .hero-content {
-        grid-template-columns: 1.2fr 1fr;
-        text-align: right;
-      }
-    }
-
-    @media (max-width: 992px) {
-
-      .main-nav,
-      .header-actions {
-        display: none;
-      }
-
-      .hamburger-menu {
-        display: block;
-        background: none;
-        border: none;
-        cursor: pointer;
-        font-size: 2rem;
-        color: var(--text-dark);
-      }
-    }
-  </style>
-</head>
-
-<body>
-
-
-  <script>
-    // Live reload script
-    document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snip=1"></' + 'script>')
   </script>
+</head>
+<body>
+  <a class="skip-link" href="#content">رفتن به محتوا</a>
+  <header class="site-header">
+    <div class="wrap header-inner">
+      <div class="brand">
+        <div class="brand-mark">خ</div>
+        <div class="brand-title">
+          خان‌پایه
+          <span>علوم 0 تا 100</span>
+        </div>
+      </div>
+      <nav class="main-nav" aria-label="منوی اصلی">
+        <a class="active" href="index.html">خانه</a>
+        <a href="library.html">کتابخانه</a>
+        <a href="about.html">درباره دبیر</a>
+        <a href="contact.html">ارتباط</a>
+      </nav>
+      <div class="header-actions">
+        <a class="btn btn-ghost" href="library.html">شروع سریع</a>
+        <a class="btn btn-primary" href="contact.html">ثبت مشاوره</a>
+      </div>
+      <button class="mobile-toggle" type="button" data-mobile-toggle aria-label="باز کردن منو">☰</button>
+    </div>
+  </header>
 
-  <div data-include="/components/header.html"></div>
+  <div class="mobile-panel" data-mobile-panel>
+    <nav aria-label="منوی موبایل">
+      <a href="index.html">خانه</a>
+      <a href="library.html">کتابخانه</a>
+      <a href="about.html">درباره دبیر</a>
+      <a href="contact.html">ارتباط</a>
+      <a class="btn btn-primary" href="contact.html">ثبت مشاوره</a>
+    </nav>
+  </div>
 
-  <main>
+  <main id="content">
     <section class="hero">
-      <div class="wrap hero-content">
-        <div class="hero-text">
-          <h1>
-            یادگیری <span class="highlight">علوم</span>،<br>ساده‌تر و جذاب‌تر از همیشه
-          </h1>
-          <p>
-            با ویدیوهای آموزشی، جزوات کامل و تمرین‌های طبقه‌بندی شده، درس علوم را به یکی از نقاط قوت خود تبدیل کنید.
-          </p>
-          <a href="courses.html" class="btn btn-primary">مشاهده دوره‌های آموزشی</a>
+      <div class="wrap hero-grid">
+        <div>
+          <h1>علوم 0 تا 100؛ یادگیری مفهومی با ویدیو، جزوه و تمرین هدفمند.</h1>
+          <p>خان‌پایه یک فضای یادگیری کامل برای دانش‌آموزان پایه‌های هفتم، هشتم و نهم است؛ تمرکز روی فهم مفهومی، تمرین هوشمند و آمادگی امتحان.</p>
+          <div class="actions">
+            <a class="btn btn-primary" href="library.html">ورود به کتابخانه محتوا</a>
+            <a class="btn btn-ghost" href="#tracks">مسیرهای یادگیری</a>
+          </div>
         </div>
-        <div class="hero-image">
-          <img
-            src="https://github.com/Khanpaye-oloom/khanpaye-oloom.github.io/blob/main/%D8%AA%D8%B5%D9%88%DB%8C%D8%B1%201.jpg?raw=true"
-            alt="تصویر گرافیکی معلم علوم در آزمایشگاه">
+        <div class="hero-card reveal">
+          <span class="hero-badge">بیش از 120 رسانه آموزشی</span>
+          <img src="assets/images/hero.jpg" alt="دبیر علوم در حال آموزش" loading="lazy" />
         </div>
       </div>
+      <div class="hero-bg" aria-hidden="true"></div>
     </section>
 
-    <section class="features">
+    <section class="section">
       <div class="wrap">
-        <h2 class="section-title">چرا خانه‌پایه؟</h2>
-        <div class="features-grid">
-          <div class="feature-card">
-            <div class="icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
-                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M21.21 15.89A10 10 0 1 1 8 2.83" />
-                <path d="M22 12A10 10 0 0 0 12 2v10z" />
-              </svg></div>
-            <h3>آموزش مفهومی</h3>
-            <p>ما به جای حفظ کردن، مفاهیم را عمیق و کاربردی به شما آموزش می‌دهیم.</p>
+        <h2 class="section-title">یک نگاه سریع به خان‌پایه</h2>
+        <p class="section-subtitle">همه چیز برای یادگیری علمی و منظم آماده است: ویدیو، جزوه، تمرین و پیگیری پیشرفت.</p>
+        <div class="stats">
+          <div class="stat-card reveal">
+            <strong>120+</strong>
+            <span>ویدیو و محتوای چندرسانه‌ای</span>
           </div>
-          <div class="feature-card">
-            <div class="icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
-                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M12 12a5 5 0 1 0 0-10 5 5 0 0 0 0 10zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z" />
-              </svg></div>
-            <h3>مدرس متخصص</h3>
-            <p>تدریس توسط معلم با‌سابقه علوم که با نیازهای شما کاملاً آشناست.</p>
+          <div class="stat-card reveal">
+            <strong>48</strong>
+            <span>جزوه و خلاصه‌درس قابل دانلود</span>
           </div>
-          <div class="feature-card">
-            <div class="icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
-                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M17 1H7a2 2 0 0 0-2 2v18a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V3a2 2 0 0 0-2-2zM12 18h.01" />
-              </svg></div>
-            <h3>دسترسی آسان</h3>
-            <p>در هر زمان و هر مکان، با موبایل یا کامپیوتر به محتوای آموزشی دسترسی دارید.</p>
+          <div class="stat-card reveal">
+            <strong>3</strong>
+            <span>مسیر یادگیری مطابق پایه تحصیلی</span>
+          </div>
+          <div class="stat-card reveal">
+            <strong>هفتگی</strong>
+            <span>برنامه تمرین و رفع اشکال</span>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="courses" id="courses">
+    <section class="section" id="tracks">
       <div class="wrap">
-        <h2 class="section-title">دوره‌های آموزشی علوم</h2>
-        <div class="courses-grid">
-          <article class="course-card grade-7">
-            <div class="banner">
-              <div class="grade-level">پایه هفتم</div>
-              <div class="title">کشف دنیای شگفت‌انگیز علوم</div>
-            </div>
-            <div class="content">
-              <p class="description">شروع یک ماجراجویی علمی! در این دوره با مبانی زیست‌شناسی، فیزیک و شیمی به زبانی ساده
-                آشنا می‌شوید.</p>
-              <div class="price">۳۷۰,۰۰۰ تومان</div>
-              <a href="grade-7.html" class="btn" style="background: #00c49a; color: #fff;">مشاهده جزئیات</a>
-            </div>
+        <h2 class="section-title">مسیرهای یادگیری</h2>
+        <p class="section-subtitle">هر پایه مسیر اختصاصی خودش را دارد؛ از مفاهیم پایه تا مرورهای آزمون‌محور.</p>
+        <div class="grade-grid">
+          <article class="grade-card reveal">
+            <h3>پایه هفتم</h3>
+            <p>شروع جذاب با مفاهیم بنیادی، آزمایش‌های ساده و تقویت مهارت مشاهده و تحلیل.</p>
+            <a class="btn btn-ghost" href="library.html#grade-7">مشاهده محتوا</a>
           </article>
-          <article class="course-card grade-8">
-            <div class="banner">
-              <div class="grade-level">پایه هشتم</div>
-              <div class="title">سفر به اعماق فیزیک و شیمی</div>
-            </div>
-            <div class="content">
-              <p class="description">مفاهیم پیچیده‌تر علوم را با مثال‌های جذاب و آزمایش‌های ذهنی یاد بگیرید و برای
-                امتحانات آماده شوید.</p>
-              <div class="price">۴۲۰,۰۰۰ تومان</div>
-              <a href="grade-8.html" class="btn" style="background: #3a86ff; color: #fff;">مشاهده جزئیات</a>
-            </div>
+          <article class="grade-card reveal">
+            <h3>پایه هشتم</h3>
+            <p>ترکیب مفاهیم پیچیده‌تر با تمرین‌های طبقه‌بندی‌شده برای تثبیت مطالب.</p>
+            <a class="btn btn-ghost" href="library.html#grade-8">مشاهده محتوا</a>
           </article>
-          <article class="course-card grade-9">
-            <div class="banner">
-              <div class="grade-level">پایه نهم</div>
-              <div class="title">آمادگی برای ورود به دبیرستان</div>
-            </div>
-            <div class="content">
-              <p class="description">جمع‌بندی کامل مباحث سه سال و حل تست‌های طبقه‌بندی شده برای کسب بهترین نتیجه در
-                امتحانات نهایی.</p>
-              <div class="price">۴۹۰,۰۰۰ تومان</div>
-              <a href="grade-9.html" class="btn" style="background: #ff7b5c; color: #fff;">مشاهده جزئیات</a>
-            </div>
+          <article class="grade-card reveal">
+            <h3>پایه نهم</h3>
+            <p>مرور کامل سال‌های گذشته + آمادگی هدفمند برای امتحانات پایان ترم.</p>
+            <a class="btn btn-ghost" href="library.html#grade-9">مشاهده محتوا</a>
           </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="wrap">
+        <h2 class="section-title">چه چیزی خان‌پایه را متفاوت می‌کند؟</h2>
+        <div class="grid-3">
+          <article class="feature-card reveal">
+            <div class="feature-icon">🎯</div>
+            <h3>یادگیری مفهومی</h3>
+            <p>تمرکز روی فهم چرایی و چگونگی پدیده‌ها، نه حفظ کردن سطحی.</p>
+          </article>
+          <article class="feature-card reveal">
+            <div class="feature-icon">🧪</div>
+            <h3>آزمایش محور</h3>
+            <p>ویدیوها و تمرین‌ها با مثال‌های واقعی و آزمایش‌های ساده طراحی شده‌اند.</p>
+          </article>
+          <article class="feature-card reveal">
+            <div class="feature-icon">📚</div>
+            <h3>جزوه‌های حرفه‌ای</h3>
+            <p>جزوه‌های طبقه‌بندی‌شده برای مرور سریع، آمادگی آزمون و جمع‌بندی.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="wrap">
+        <h2 class="section-title">نمونه‌ای از رسانه‌ها</h2>
+        <p class="section-subtitle">گزیده‌ای از محتواهای پرطرفدار برای شروع سریع.</p>
+        <div class="media-grid">
+          <article class="media-card reveal">
+            <span>ویدیو 12 دقیقه‌ای</span>
+            <h4>نیروهای وارد بر جسم در حرکت</h4>
+            <p>تحلیل قدم‌به‌قدم نیروها با انیمیشن‌های ساده و مثال‌های ملموس.</p>
+            <div class="tag">پایه هشتم</div>
+          </article>
+          <article class="media-card reveal">
+            <span>جزوه 8 صفحه‌ای</span>
+            <h4>چرخه‌های مواد در طبیعت</h4>
+            <p>خلاصه درس + سوالات پرتکرار امتحانی برای مرور سریع.</p>
+            <div class="tag">پایه هفتم</div>
+          </article>
+          <article class="media-card reveal">
+            <span>ویدیو 18 دقیقه‌ای</span>
+            <h4>الکتریسیته و مدارها</h4>
+            <p>ترکیب مفاهیم با تمرین‌های حل‌شده و نکات امتحانی.</p>
+            <div class="tag">پایه نهم</div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="wrap">
+        <h2 class="section-title">برنامه هفتگی همراهی</h2>
+        <p class="section-subtitle">هر هفته یک برنامه مشخص برای ویدیو، تمرین و رفع اشکال.</p>
+        <div class="timeline">
+          <div class="timeline-item reveal">
+            <div class="timeline-time">شنبه</div>
+            <div>
+              <strong>ویدیوی مفهومی</strong>
+              <p>شروع مبحث جدید با توضیح قدم‌به‌قدم و مثال‌های کاربردی.</p>
+            </div>
+          </div>
+          <div class="timeline-item reveal">
+            <div class="timeline-time">دوشنبه</div>
+            <div>
+              <strong>جزوه و خلاصه درس</strong>
+              <p>جمع‌بندی نکات کلیدی و تمرین‌های استاندارد.</p>
+            </div>
+          </div>
+          <div class="timeline-item reveal">
+            <div class="timeline-time">چهارشنبه</div>
+            <div>
+              <strong>تمرین تعاملی</strong>
+              <p>حل تمرین‌های نمونه + تحلیل اشتباهات رایج.</p>
+            </div>
+          </div>
+          <div class="timeline-item reveal">
+            <div class="timeline-time">پنجشنبه</div>
+            <div>
+              <strong>جلسه رفع اشکال</strong>
+              <p>مرور سوالات دانش‌آموزان و آماده‌سازی برای آزمون‌ها.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="wrap">
+        <h2 class="section-title">بازخورد خانواده‌ها و دانش‌آموزان</h2>
+        <div class="grid-3">
+          <div class="testimonial reveal">
+            <p>«پسرم بعد از دیدن ویدیوهای خان‌پایه، مفاهیم فصل نیرو را کامل فهمید.»</p>
+            <strong>خانم نادری - والد</strong>
+          </div>
+          <div class="testimonial reveal">
+            <p>«جزوه‌های خلاصه‌درس دقیقا همان چیزی بود که برای مرور شب امتحان نیاز داشتم.»</p>
+            <strong>مریم - پایه نهم</strong>
+          </div>
+          <div class="testimonial reveal">
+            <p>«تمرین‌های طبقه‌بندی‌شده باعث شد در امتحان ترم نمره کامل بگیرم.»</p>
+            <strong>پارسا - پایه هشتم</strong>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="wrap">
+        <h2 class="section-title">سوالات پرتکرار</h2>
+        <div class="faq">
+          <details class="reveal">
+            <summary>چطور به محتواها دسترسی پیدا کنم؟</summary>
+            <p>کافی است وارد کتابخانه شوید و بر اساس پایه و موضوع، ویدیو یا جزوه موردنظر را انتخاب کنید.</p>
+          </details>
+          <details class="reveal">
+            <summary>آیا محتواها مطابق آخرین کتاب درسی است؟</summary>
+            <p>بله، همه منابع بر اساس آخرین تغییرات کتاب علوم متوسطه اول تدوین شده‌اند.</p>
+          </details>
+          <details class="reveal">
+            <summary>چطور سوالاتم را مطرح کنم؟</summary>
+            <p>از طریق فرم تماس یا پیام‌رسان‌های معرفی‌شده می‌توانید سوالات خود را ارسال کنید.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="wrap">
+        <div class="cta reveal">
+          <h2>آماده‌ای مسیر یادگیریت رو شروع کنی؟</h2>
+          <p>به کتابخانه خان‌پایه برو و اولین درس را همین امروز ببین.</p>
+          <div class="actions">
+            <a class="btn btn-primary" href="library.html">ورود به کتابخانه</a>
+            <a class="btn btn-ghost" href="contact.html">درخواست مشاوره</a>
+          </div>
         </div>
       </div>
     </section>
   </main>
 
-  <div data-include="/components/footer.html"></div>
-  <script src="/assets/JS/main.js"></script>
+  <footer class="site-footer">
+    <div class="wrap">
+      <div class="footer-grid">
+        <div>
+          <h4>خان‌پایه</h4>
+          <p>پلتفرم آموزش علوم برای دانش‌آموزان متوسطه اول؛ یادگیری مفهومی و منظم.</p>
+        </div>
+        <div>
+          <h4>دسترسی سریع</h4>
+          <a href="library.html">کتابخانه</a>
+          <a href="about.html">درباره دبیر</a>
+          <a href="contact.html">ارتباط</a>
+        </div>
+        <div>
+          <h4>راه‌های ارتباطی</h4>
+          <a href="mailto:info@khanpaye.ir">info@khanpaye.ir</a>
+          <a href="tel:+989000000000">+98 900 000 0000</a>
+          <span>تهران، ایران</span>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© <span data-year></span> خان‌پایه. همه حقوق محفوظ است.</span>
+        <span>طراحی شده برای یادگیری علمی عمیق</span>
+      </div>
+    </div>
+  </footer>
 
+  <script src="assets/JS/main.js"></script>
 </body>
-
 </html>
