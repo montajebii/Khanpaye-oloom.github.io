@@ -1,91 +1,23 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <!-- Home Page -->
   <url>
-    <loc>https://0loum.ir/</loc>
-    <lastmod>2025-12-05</lastmod>
+    <loc>https://khanpaye-oloom.github.io/</loc>
+    <lastmod>2026-02-04</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>1.0</priority>
   </url>
-
-  <!-- Course Pages -->
   <url>
-    <loc>https://0loum.ir/courses.html</loc>
-    <lastmod>2025-12-05</lastmod>
+    <loc>https://khanpaye-oloom.github.io/library.html</loc>
+    <lastmod>2026-02-04</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
   </url>
-
   <url>
-    <loc>https://0loum.ir/grade-7.html</loc>
-    <lastmod>2025-12-05</lastmod>
+    <loc>https://khanpaye-oloom.github.io/about.html</loc>
+    <lastmod>2026-02-04</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
   </url>
-
   <url>
-    <loc>https://0loum.ir/grade-8.html</loc>
-    <lastmod>2025-12-05</lastmod>
+    <loc>https://khanpaye-oloom.github.io/contact.html</loc>
+    <lastmod>2026-02-04</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
-
-  <url>
-    <loc>https://0loum.ir/grade-9.html</loc>
-    <lastmod>2025-12-05</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
-
-  <!-- Lesson Player -->
-  <url>
-    <loc>https://0loum.ir/lesson-player.html</loc>
-    <lastmod>2025-12-05</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-
-  <!-- Information Pages -->
-  <url>
-    <loc>https://0loum.ir/contact.html</loc>
-    <lastmod>2025-12-05</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-
-  <url>
-    <loc>https://0loum.ir/faq.html</loc>
-    <lastmod>2025-12-05</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-
-  <url>
-    <loc>https://0loum.ir/terms.html</loc>
-    <lastmod>2025-12-05</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.5</priority>
-  </url>
-
-  <url>
-    <loc>https://0loum.ir/login.html</loc>
-    <lastmod>2025-12-05</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-
-  <!-- Pages Folder -->
-  <url>
-    <loc>https://0loum.ir/pages/about.html</loc>
-    <lastmod>2025-12-05</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-
-  <url>
-    <loc>https://0loum.ir/pages/contact.html</loc>
-    <lastmod>2025-12-05</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
   </url>
 </urlset>

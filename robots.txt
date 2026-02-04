@@ -1,6 +1,3 @@
-User-agent: *
+﻿User-agent: *
 Allow: /
-Disallow: /admin/
-Disallow: /*.php
-
-Sitemap: https://0loum.ir/sitemap.xml
+Sitemap: https://khanpaye-oloom.github.io/sitemap.xml

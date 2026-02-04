@@ -1,0 +1,216 @@
+﻿<!doctype html>
+<html lang="fa" dir="rtl">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>کتابخانه خان‌پایه | ویدیوها و جزوه‌ها</title>
+  <meta name="description" content="کتابخانه جامع ویدیوها، جزوه‌ها و تمرین‌های علوم برای پایه‌های هفتم تا نهم." />
+  <link rel="icon" href="favicon.ico" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700;800&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="assets/CSS/style.css" />
+</head>
+
+<body>
+  <a class="skip-link" href="#content">رفتن به محتوا</a>
+  <header class="site-header">
+    <div class="wrap header-inner">
+      <div class="brand">
+        <div class="brand-mark">خ</div>
+        <div class="brand-title">
+          خان‌پایه
+          <span>علوم 0 تا 100</span>
+        </div>
+      </div>
+      <nav class="main-nav" aria-label="منوی اصلی">
+        <a href="index.html">خانه</a>
+        <a class="active" href="library.html">کتابخانه</a>
+        <a href="about.html">درباره دبیر</a>
+        <a href="contact.html">ارتباط</a>
+      </nav>
+      <div class="header-actions">
+        <a class="btn btn-ghost" href="index.html#tracks">مسیرهای یادگیری</a>
+        <a class="btn btn-primary" href="contact.html">مشاوره</a>
+      </div>
+      <button class="mobile-toggle" type="button" data-mobile-toggle aria-label="باز کردن منو">☰</button>
+    </div>
+  </header>
+
+  <div class="mobile-panel" data-mobile-panel>
+    <nav aria-label="منوی موبایل">
+      <a href="index.html">خانه</a>
+      <a href="library.html">کتابخانه</a>
+      <a href="about.html">درباره دبیر</a>
+      <a href="contact.html">ارتباط</a>
+      <a class="btn btn-primary" href="contact.html">مشاوره</a>
+    </nav>
+  </div>
+
+  <main id="content">
+    <div class="hidden" id="grade-7"></div>
+    <div class="hidden" id="grade-8"></div>
+    <div class="hidden" id="grade-9"></div>
+    <section class="section">
+      <div class="wrap">
+        <h1 class="section-title">کتابخانه محتوا</h1>
+        <p class="section-subtitle">از فیلترها برای پیدا کردن سریع محتوای مناسب استفاده کنید.</p>
+        <div class="library-filters">
+          <div>
+            <label for="grade">پایه</label>
+            <select id="grade" data-filter-grade>
+              <option value="all">همه پایه‌ها</option>
+              <option value="7">هفتم</option>
+              <option value="8">هشتم</option>
+              <option value="9">نهم</option>
+            </select>
+          </div>
+          <div>
+            <label for="type">نوع محتوا</label>
+            <select id="type" data-filter-type>
+              <option value="all">همه</option>
+              <option value="video">ویدیو</option>
+              <option value="notes">جزوه</option>
+              <option value="quiz">تمرین</option>
+            </select>
+          </div>
+          <div>
+            <label for="topic">موضوع</label>
+            <select id="topic" data-filter-topic>
+              <option value="all">همه موضوعات</option>
+              <option value="فیزیک">فیزیک</option>
+              <option value="زیست">زیست</option>
+              <option value="شیمی">شیمی</option>
+              <option value="زمین">زمین‌شناسی</option>
+            </select>
+          </div>
+          <div>
+            <label for="search">جستجو</label>
+            <input id="search" type="search" placeholder="عنوان یا کلیدواژه..." data-filter-search />
+          </div>
+        </div>
+        <div class="library-grid" data-library-grid></div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <div class="footer-grid">
+        <div>
+          <h4>خان‌پایه</h4>
+          <p>کتابخانه کامل آموزش علوم برای پایه‌های هفتم تا نهم.</p>
+        </div>
+        <div>
+          <h4>دسترسی سریع</h4>
+          <a href="index.html">خانه</a>
+          <a href="about.html">درباره دبیر</a>
+          <a href="contact.html">ارتباط</a>
+        </div>
+        <div>
+          <h4>پشتیبانی</h4>
+          <a href="mailto:info@khanpaye.ir">info@khanpaye.ir</a>
+          <a href="tel:+989000000000">+98 900 000 0000</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© <span data-year></span> خان‌پایه. همه حقوق محفوظ است.</span>
+        <span>به‌روزرسانی مداوم محتوا</span>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    window.LibraryItems = [
+      {
+        title: 'نیرو و حرکت - بخش اول',
+        summary: 'آشنایی با نیروهای وارد بر جسم، نمودار نیرو و تحلیل حرکت ساده.',
+        grade: '8',
+        type: 'video',
+        typeLabel: 'ویدیو',
+        topic: 'فیزیک',
+        duration: '۱۲ دقیقه',
+        level: 'مفهومی',
+        action: 'مشاهده ویدیو',
+        secondaryAction: 'مشاهده جزوه',
+        link: 'https://www.youtube.com',
+        secondaryLink: 'assets/downloads/01.pdf'
+      },
+      {
+        title: 'چرخه آب در طبیعت',
+        summary: 'مرور کامل چرخه آب، نمودارها و سوالات پرتکرار امتحانی.',
+        grade: '7',
+        type: 'notes',
+        typeLabel: 'جزوه',
+        topic: 'زمین',
+        duration: '۸ صفحه',
+        level: 'جمع‌بندی',
+        action: 'دانلود جزوه',
+        secondaryAction: 'تمرین مرتبط',
+        link: 'assets/downloads/01.pdf',
+        secondaryLink: 'assets/downloads/02.pdf'
+      },
+      {
+        title: 'سلول و اندامک‌ها',
+        summary: 'بررسی ساختار سلول گیاهی و جانوری با تصاویر آموزشی.',
+        grade: '8',
+        type: 'video',
+        typeLabel: 'ویدیو',
+        topic: 'زیست',
+        duration: '۱۵ دقیقه',
+        level: 'مفهومی',
+        action: 'مشاهده ویدیو',
+        secondaryAction: 'دانلود جزوه',
+        link: 'https://www.youtube.com',
+        secondaryLink: 'assets/downloads/02.pdf'
+      },
+      {
+        title: 'واکنش‌های شیمیایی',
+        summary: 'مرور انواع واکنش‌ها با مثال‌های روزمره و سوالات تمرینی.',
+        grade: '9',
+        type: 'quiz',
+        typeLabel: 'تمرین',
+        topic: 'شیمی',
+        duration: '۲۰ سوال',
+        level: 'آزمون محور',
+        action: 'شروع تمرین',
+        secondaryAction: 'دانلود پاسخنامه',
+        link: 'assets/downloads/02.pdf',
+        secondaryLink: 'assets/downloads/01.pdf'
+      },
+      {
+        title: 'الکتریسیته ساکن',
+        summary: 'آزمایش‌های ساده برای درک بار الکتریکی و جذب اجسام.',
+        grade: '7',
+        type: 'video',
+        typeLabel: 'ویدیو',
+        topic: 'فیزیک',
+        duration: '۱۰ دقیقه',
+        level: 'مفهومی',
+        action: 'مشاهده ویدیو',
+        secondaryAction: 'جزوه همراه',
+        link: 'https://www.youtube.com',
+        secondaryLink: 'assets/downloads/01.pdf'
+      },
+      {
+        title: 'زمین‌لرزه و ایمنی',
+        summary: 'علت زلزله‌ها، راه‌های پیشگیری و نکات ایمنی مهم.',
+        grade: '9',
+        type: 'notes',
+        typeLabel: 'جزوه',
+        topic: 'زمین',
+        duration: '۶ صفحه',
+        level: 'جمع‌بندی',
+        action: 'دانلود جزوه',
+        secondaryAction: 'تمرین مرتبط',
+        link: 'assets/downloads/02.pdf',
+        secondaryLink: 'assets/downloads/01.pdf'
+      }
+    ];
+  </script>
+  <script src="assets/JS/main.js"></script>
+</body>
+
+</html>
