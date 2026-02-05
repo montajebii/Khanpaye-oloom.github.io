@@ -1,5 +1,6 @@
 ﻿<!doctype html>
 <html lang="fa" dir="rtl">
+
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
@@ -13,7 +14,8 @@
   <link rel="icon" href="favicon.ico" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700;800&display=swap"
+    rel="stylesheet" />
   <link rel="stylesheet" href="assets/CSS/style.css" />
   <meta property="og:title" content="پخش ویدیو | خان‌پایه" />
   <meta property="og:description" content="پخش ویدیوی آموزشی علوم با کیفیت بالا." />
@@ -26,7 +28,9 @@
   <meta name="twitter:title" content="پخش ویدیو | خان‌پایه" />
   <meta name="twitter:description" content="پخش ویدیوی آموزشی علوم با کیفیت بالا." />
   <meta name="twitter:image" content="https://khanpaye-oloom.github.io/assets/images/hero.jpg" />
+  <script defer data-domain="khanpaye-oloom.github.io" src="https://plausible.io/js/script.js"></script>
 </head>
+
 <body>
   <a class="skip-link" href="#content">رفتن به محتوا</a>
   <header class="site-header">
@@ -65,7 +69,7 @@
   <main id="content" class="section">
     <div class="wrap video-player">
       <div class="video-meta">
-        <span class="tag">ویدیو آموزشی</span>
+        <span class="tag" data-video-tag>ویدیو آموزشی</span>
         <h1 data-video-title>پخش ویدیوی آموزشی</h1>
         <p data-video-description>ویدیو را تماشا کنید و سپس جزوه‌های مرتبط را برای مرور سریع دانلود کنید.</p>
         <div class="actions">
@@ -73,35 +77,17 @@
           <a class="btn btn-primary" href="contact.html">پرسش از دبیر</a>
         </div>
       </div>
-      <div class="video-frame">
-        <iframe
-          title="پخش ویدیوی آموزشی"
-          src=""
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          allowfullscreen
-          data-video-frame
-        ></iframe>
-      </div>
+      <div class="video-frame" data-video-frame></div>
+
       <section class="section" style="padding: 0;">
-        <div class="grid-3">
-          <article class="feature-card">
-            <div class="feature-icon">📝</div>
-            <h3>جزوه مرتبط</h3>
-            <p>پس از مشاهده ویدیو، جزوه را دانلود و نکات کلیدی را مرور کنید.</p>
-            <a class="btn btn-ghost" href="assets/downloads/کاربرگ%20علوم%20هفتم%20فصل%20(1).pdf">دانلود کاربرگ</a>
-          </article>
-          <article class="feature-card">
-            <div class="feature-icon">✅</div>
-            <h3>تمرین سریع</h3>
-            <p>تمرین‌های کوتاه برای تثبیت مطالب همین بخش.</p>
-            <a class="btn btn-ghost" href="library.html">مشاهده تمرین‌ها</a>
-          </article>
-          <article class="feature-card">
-            <div class="feature-icon">💬</div>
-            <h3>رفع اشکال</h3>
-            <p>سوالاتت را ارسال کن تا در سریع‌ترین زمان پاسخ بگیری.</p>
-            <a class="btn btn-ghost" href="contact.html">ارسال سوال</a>
-          </article>
+        <div class="grid-3" data-video-actions></div>
+      </section>
+
+      <section class="section" style="padding: 0;">
+        <div>
+          <h2 class="section-title">درس‌های مرتبط</h2>
+          <p class="section-subtitle">محتواهای پیشنهادی بر اساس همین مبحث.</p>
+          <div class="library-grid" data-related-lessons></div>
         </div>
       </section>
     </div>
@@ -135,27 +121,146 @@
   <script>
     (function () {
       const params = new URLSearchParams(window.location.search);
-      const videoId = params.get('v') || '4KpB7Fh2Xuo';
-      const title = params.get('title');
-      const description = params.get('desc');
-      const iframe = document.querySelector('[data-video-frame]');
+      const videoId = params.get('id');
+      const frame = document.querySelector('[data-video-frame]');
       const titleEl = document.querySelector('[data-video-title]');
       const descEl = document.querySelector('[data-video-description]');
+      const tagEl = document.querySelector('[data-video-tag]');
+      const actionsEl = document.querySelector('[data-video-actions]');
+      const relatedEl = document.querySelector('[data-related-lessons]');
 
-      if (iframe) {
-        iframe.src = `https://www.youtube-nocookie.com/embed/${videoId}`;
-      }
+      const createActionCard = (icon, title, desc, link, label) => `
+        <article class="feature-card">
+          <div class="feature-icon">${icon}</div>
+          <h3>${title}</h3>
+          <p>${desc}</p>
+          <a class="btn btn-ghost" href="${link}">${label}</a>
+        </article>
+      `;
 
-      if (title && titleEl) {
-        titleEl.textContent = title;
-        document.title = `${title} | پخش ویدیو - خان‌پایه`;
-      }
+      const createRelatedCard = (item) => `
+        <article class="library-card">
+          <span class="tag">${item.typeLabel}</span>
+          <h3>${item.title}</h3>
+          <p>${item.summary}</p>
+          <div class="library-meta">
+            <span>پایه ${item.grade}</span>
+            <span>${item.duration}</span>
+            <span>${item.level}</span>
+          </div>
+          <div class="actions">
+            <a class="btn btn-primary" href="${item.link}">${item.action}</a>
+            <a class="btn btn-ghost" href="${item.secondaryLink}">${item.secondaryAction}</a>
+          </div>
+        </article>
+      `;
 
-      if (description && descEl) {
-        descEl.textContent = description;
-      }
-    })();
+      const renderAparatEmbed = (aparatId) => {
+        if (!frame) return;
+        const rnd = String(Date.now());
+        frame.innerHTML = `
+          <div id="${rnd}">
+            <script type="text/JavaScript"
+              src="https://www.aparat.com/embed/${aparatId}?data[rnddiv]=${rnd}&data[responsive]=yes&titleShow=true&recom=self"></script>
+  </div>
+  `;
+  };
+
+  fetch('assets/content/library.json')
+  .then((response) => response.json())
+  .then((data) => {
+  const videos = data.videos || [];
+  const notes = data.notes || [];
+  const selectedVideo = videos.find((video) => video.id === videoId) || videos[0];
+
+  if (!selectedVideo) {
+  return;
+  }
+
+  const videoTitle = selectedVideo.title;
+  const videoSummary = selectedVideo.summary;
+  const aparatId = selectedVideo.aparatId;
+  const notesMap = Object.fromEntries(notes.map((note) => [note.id, note]));
+  const relatedNotes = (selectedVideo.notes || [])
+  .map((id) => notesMap[id])
+  .filter(Boolean);
+
+  if (aparatId) {
+  renderAparatEmbed(aparatId);
+  }
+
+  if (titleEl) {
+  titleEl.textContent = videoTitle;
+  }
+
+  if (descEl) {
+  descEl.textContent = videoSummary;
+  }
+
+  if (tagEl) {
+  tagEl.textContent = `پایه ${selectedVideo.grade} · ${selectedVideo.topic}`;
+  }
+
+  document.title = `${videoTitle} | پخش ویدیو - خان‌پایه`;
+
+  if (actionsEl) {
+  const noteLink = relatedNotes[0]
+  ?
+  `note-viewer.html?file=${encodeURIComponent(relatedNotes[0].file)}&title=${encodeURIComponent(relatedNotes[0].title)}`
+  : 'library.html?type=notes';
+  actionsEl.innerHTML =
+  createActionCard('📝', 'جزوه مرتبط', 'جزوه را دانلود کن و نکات کلیدی را مرور کن.', noteLink, 'مشاهده جزوه') +
+  createActionCard('✅', 'تمرین سریع', 'تمرین‌های کوتاه برای تثبیت مطالب همین بخش.', 'library.html?type=quiz', 'مشاهده
+  تمرین‌ها') +
+  createActionCard('💬', 'رفع اشکال', 'سوالاتت را ارسال کن تا در سریع‌ترین زمان پاسخ بگیری.', 'contact.html', 'ارسال
+  سوال');
+  }
+
+  const relatedItems = videos
+  .filter((video) => video.id !== selectedVideo.id)
+  .filter((video) => video.grade === selectedVideo.grade || video.topic === selectedVideo.topic)
+  .slice(0, 3)
+  .map((video) => ({
+  title: video.title,
+  summary: video.summary,
+  grade: video.grade,
+  typeLabel: 'ویدیو',
+  duration: video.duration,
+  level: video.level,
+  action: 'پخش ویدیو',
+  secondaryAction: 'مشاهده جزوه',
+  link: `video-player.html?id=${encodeURIComponent(video.id)}`,
+  secondaryLink: 'library.html?type=notes&grade=' + encodeURIComponent(video.grade)
+  }));
+
+  if (relatedEl) {
+  relatedEl.innerHTML = relatedItems.length
+  ? relatedItems.map(createRelatedCard).join('')
+  : '<p>درس مرتبط دیگری برای این ویدیو ثبت نشده است.</p>';
+  }
+
+  const videoSchema = {
+  "@context": "https://schema.org",
+  "@type": "VideoObject",
+  "name": videoTitle,
+  "description": videoSummary,
+  "thumbnailUrl": aparatId ? `https://www.aparat.com/cover/${aparatId}/` : undefined,
+  "uploadDate": "2026-02-04",
+  "embedUrl": aparatId ? `https://www.aparat.com/embed/${aparatId}` : undefined
+  };
+
+  let schemaEl = document.querySelector('#video-schema');
+  if (!schemaEl) {
+  schemaEl = document.createElement('script');
+  schemaEl.type = 'application/ld+json';
+  schemaEl.id = 'video-schema';
+  document.head.appendChild(schemaEl);
+  }
+  schemaEl.textContent = JSON.stringify(videoSchema);
+  });
+  })();
   </script>
   <script src="assets/JS/main.js"></script>
 </body>
+
 </html>

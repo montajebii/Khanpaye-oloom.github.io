@@ -60,7 +60,7 @@
   }
 
   const libraryGrid = document.querySelector("[data-library-grid]");
-  if (!libraryGrid || !window.LibraryItems) {
+  if (!libraryGrid) {
     return;
   }
 
@@ -68,14 +68,50 @@
   const filterType = document.querySelector("[data-filter-type]");
   const filterTopic = document.querySelector("[data-filter-topic]");
   const filterSearch = document.querySelector("[data-filter-search]");
+  const emptyState = document.querySelector("[data-library-empty]");
 
-  const applyFilters = () => {
+  const toLibraryItem = (item) => {
+    if (item.aparatId || item.youtubeId) {
+      return {
+        title: item.title,
+        summary: item.summary,
+        grade: item.grade,
+        type: "video",
+        typeLabel: "ویدیو",
+        topic: item.topic,
+        duration: item.duration,
+        level: item.level,
+        action: "پخش ویدیو",
+        secondaryAction: "جزوه مرتبط",
+        link: `video-player.html?id=${encodeURIComponent(item.id)}`,
+        secondaryLink: "library.html?type=notes&grade=" + encodeURIComponent(item.grade),
+      };
+    }
+
+    return {
+      title: item.title,
+      summary: item.summary,
+      grade: item.grade,
+      type: "notes",
+      typeLabel: "جزوه/کاربرگ",
+      topic: item.topic,
+      duration: item.pages || "PDF",
+      level: item.level,
+      action: "دانلود جزوه",
+      secondaryAction: "مشاهده آنلاین",
+      link: item.file,
+      secondaryLink: `note-viewer.html?file=${encodeURIComponent(item.file)}&title=${encodeURIComponent(item.title)}`,
+      download: true,
+    };
+  };
+
+  const applyFilters = (items) => {
     const grade = filterGrade ? filterGrade.value : "all";
     const type = filterType ? filterType.value : "all";
     const topic = filterTopic ? filterTopic.value : "all";
     const query = filterSearch ? filterSearch.value.trim().toLowerCase() : "";
 
-    const results = window.LibraryItems.filter((item) => {
+    const results = items.filter((item) => {
       const matchesGrade = grade === "all" || item.grade === grade;
       const matchesType = type === "all" || item.type === type;
       const matchesTopic = topic === "all" || item.topic === topic;
@@ -86,12 +122,16 @@
       return matchesGrade && matchesType && matchesTopic && matchesQuery;
     });
 
+    if (emptyState) {
+      emptyState.classList.toggle("hidden", results.length !== 0);
+    }
+
     libraryGrid.innerHTML = results
       .map((item) => {
         const actions = [];
         if (item.link && item.action) {
           actions.push(
-            `<a class="btn btn-primary" href="${item.link}">${item.action}</a>`,
+            `<a class="btn btn-primary" href="${item.link}" ${item.download ? "download" : ""}>${item.action}</a>`,
           );
         }
         if (item.secondaryLink && item.secondaryAction) {
@@ -117,10 +157,60 @@
       .join("");
   };
 
-  [filterGrade, filterType, filterTopic, filterSearch].forEach((control) => {
-    if (!control) return;
-    control.addEventListener("input", applyFilters);
-  });
+  const setFiltersFromParams = () => {
+    const params = new URLSearchParams(window.location.search);
+    const path = params.get("path");
+    const grade = params.get("grade");
+    const type = params.get("type");
+    const topic = params.get("topic");
+    const search = params.get("search");
 
-  applyFilters();
+    if (filterGrade) {
+      if (path && path.startsWith("grade-")) {
+        filterGrade.value = path.replace("grade-", "");
+      } else if (grade) {
+        filterGrade.value = grade;
+      }
+    }
+
+    if (filterType && type) {
+      filterType.value = type;
+    }
+
+    if (filterTopic && topic) {
+      filterTopic.value = topic;
+    }
+
+    if (filterSearch && search) {
+      filterSearch.value = search;
+    }
+  };
+
+  const initLibrary = async () => {
+    try {
+      const response = await fetch("assets/content/library.json");
+      if (!response.ok) {
+        throw new Error("Failed to load library content");
+      }
+
+      const data = await response.json();
+      const items = [
+        ...(data.videos || []).map(toLibraryItem),
+        ...(data.notes || []).map(toLibraryItem),
+      ];
+
+      [filterGrade, filterType, filterTopic, filterSearch].forEach((control) => {
+        if (!control) return;
+        control.addEventListener("input", () => applyFilters(items));
+      });
+
+      setFiltersFromParams();
+      applyFilters(items);
+    } catch (error) {
+      libraryGrid.innerHTML =
+        '<p>در حال حاضر امکان بارگذاری محتوا وجود ندارد.</p>';
+    }
+  };
+
+  initLibrary();
 })();

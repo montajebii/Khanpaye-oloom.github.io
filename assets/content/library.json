@@ -1,0 +1,189 @@
+﻿{
+  "videos": [
+    {
+      "id": "forces-1",
+      "title": "نیرو و حرکت - بخش اول",
+      "summary": "آشنایی با نیروهای وارد بر جسم، نمودار نیرو و تحلیل حرکت ساده.",
+      "grade": "8",
+      "topic": "فیزیک",
+      "duration": "۱۲ دقیقه",
+      "level": "مفهومی",
+      "aparatId": "x855e2s",
+      "notes": ["worksheet-7-1", "worksheet-7-2"]
+    },
+    {
+      "id": "cells-organelles",
+      "title": "سلول و اندامک‌ها",
+      "summary": "بررسی ساختار سلول گیاهی و جانوری با تصاویر آموزشی.",
+      "grade": "8",
+      "topic": "زیست",
+      "duration": "۱۵ دقیقه",
+      "level": "مفهومی",
+      "aparatId": "x855e2s",
+      "notes": ["worksheet-7-3"]
+    },
+    {
+      "id": "static-electricity",
+      "title": "الکتریسیته ساکن",
+      "summary": "آزمایش‌های ساده برای درک بار الکتریکی و جذب اجسام.",
+      "grade": "7",
+      "topic": "فیزیک",
+      "duration": "۱۰ دقیقه",
+      "level": "مفهومی",
+      "aparatId": "x855e2s",
+      "notes": ["worksheet-7-4"]
+    }
+  ],
+  "notes": [
+    {
+      "id": "worksheet-7-1",
+      "title": "کاربرگ علوم هفتم - فصل 1",
+      "summary": "کاربرگ تمرینی فصل 1 برای تثبیت مفاهیم.",
+      "grade": "7",
+      "topic": "عمومی",
+      "pages": "PDF",
+      "level": "تمرینی",
+      "file": "assets/downloads/کاربرگ علوم هفتم فصل (1).pdf"
+    },
+    {
+      "id": "worksheet-7-2",
+      "title": "کاربرگ علوم هفتم - فصل 2",
+      "summary": "کاربرگ تمرینی فصل 2 برای مرور سریع.",
+      "grade": "7",
+      "topic": "عمومی",
+      "pages": "PDF",
+      "level": "تمرینی",
+      "file": "assets/downloads/کاربرگ علوم هفتم فصل (2).pdf"
+    },
+    {
+      "id": "worksheet-7-3",
+      "title": "کاربرگ علوم هفتم - فصل 3",
+      "summary": "تمرین‌های هدفمند فصل 3 برای تسلط بیشتر.",
+      "grade": "7",
+      "topic": "عمومی",
+      "pages": "PDF",
+      "level": "تمرینی",
+      "file": "assets/downloads/کاربرگ علوم هفتم فصل (3).pdf"
+    },
+    {
+      "id": "worksheet-7-4",
+      "title": "کاربرگ علوم هفتم - فصل 4",
+      "summary": "کاربرگ جمع‌بندی فصل 4 همراه با تمرین.",
+      "grade": "7",
+      "topic": "عمومی",
+      "pages": "PDF",
+      "level": "تمرینی",
+      "file": "assets/downloads/کاربرگ علوم هفتم فصل (4).pdf"
+    },
+    {
+      "id": "worksheet-7-5",
+      "title": "کاربرگ علوم هفتم - فصل 5",
+      "summary": "تمرین‌های تکمیلی فصل 5.",
+      "grade": "7",
+      "topic": "عمومی",
+      "pages": "PDF",
+      "level": "تمرینی",
+      "file": "assets/downloads/کاربرگ علوم هفتم فصل (5).pdf"
+    },
+    {
+      "id": "worksheet-7-6",
+      "title": "کاربرگ علوم هفتم - فصل 6",
+      "summary": "مرور نکات کلیدی فصل 6.",
+      "grade": "7",
+      "topic": "عمومی",
+      "pages": "PDF",
+      "level": "تمرینی",
+      "file": "assets/downloads/کاربرگ علوم هفتم فصل (6).pdf"
+    },
+    {
+      "id": "worksheet-7-7",
+      "title": "کاربرگ علوم هفتم - فصل 7",
+      "summary": "تمرین‌های فصل 7 برای تثبیت یادگیری.",
+      "grade": "7",
+      "topic": "عمومی",
+      "pages": "PDF",
+      "level": "تمرینی",
+      "file": "assets/downloads/کاربرگ علوم هفتم فصل (7).pdf"
+    },
+    {
+      "id": "worksheet-7-8",
+      "title": "کاربرگ علوم هفتم - فصل 8",
+      "summary": "کاربرگ تمرینی فصل 8.",
+      "grade": "7",
+      "topic": "عمومی",
+      "pages": "PDF",
+      "level": "تمرینی",
+      "file": "assets/downloads/کاربرگ علوم هفتم فصل (8).pdf"
+    },
+    {
+      "id": "worksheet-7-9",
+      "title": "کاربرگ علوم هفتم - فصل 9",
+      "summary": "کاربرگ مرور و تمرین فصل 9.",
+      "grade": "7",
+      "topic": "عمومی",
+      "pages": "PDF",
+      "level": "تمرینی",
+      "file": "assets/downloads/کاربرگ علوم هفتم فصل (9).pdf"
+    },
+    {
+      "id": "worksheet-7-10",
+      "title": "کاربرگ علوم هفتم - فصل 10",
+      "summary": "جمع‌بندی فصل 10 با تمرین‌های منتخب.",
+      "grade": "7",
+      "topic": "عمومی",
+      "pages": "PDF",
+      "level": "تمرینی",
+      "file": "assets/downloads/کاربرگ علوم هفتم فصل (10).pdf"
+    },
+    {
+      "id": "worksheet-7-11",
+      "title": "کاربرگ علوم هفتم - فصل 11",
+      "summary": "تمرین‌های تکمیلی فصل 11.",
+      "grade": "7",
+      "topic": "عمومی",
+      "pages": "PDF",
+      "level": "تمرینی",
+      "file": "assets/downloads/کاربرگ علوم هفتم فصل (11).pdf"
+    },
+    {
+      "id": "worksheet-7-12",
+      "title": "کاربرگ علوم هفتم - فصل 12",
+      "summary": "مرور مفاهیم فصل 12 همراه با تمرین.",
+      "grade": "7",
+      "topic": "عمومی",
+      "pages": "PDF",
+      "level": "تمرینی",
+      "file": "assets/downloads/کاربرگ علوم هفتم فصل (12).pdf"
+    },
+    {
+      "id": "worksheet-7-13",
+      "title": "کاربرگ علوم هفتم - فصل 13",
+      "summary": "کاربرگ تمرینی فصل 13.",
+      "grade": "7",
+      "topic": "عمومی",
+      "pages": "PDF",
+      "level": "تمرینی",
+      "file": "assets/downloads/کاربرگ علوم هفتم فصل (13).pdf"
+    },
+    {
+      "id": "worksheet-7-14",
+      "title": "کاربرگ علوم هفتم - فصل 14",
+      "summary": "تمرین‌های فصل 14 برای مرور نهایی.",
+      "grade": "7",
+      "topic": "عمومی",
+      "pages": "PDF",
+      "level": "تمرینی",
+      "file": "assets/downloads/کاربرگ علوم هفتم فصل (14).pdf"
+    },
+    {
+      "id": "worksheet-7-15",
+      "title": "کاربرگ علوم هفتم - فصل 15",
+      "summary": "جمع‌بندی فصل 15 با تمرین‌های استاندارد.",
+      "grade": "7",
+      "topic": "عمومی",
+      "pages": "PDF",
+      "level": "تمرینی",
+      "file": "assets/downloads/کاربرگ علوم هفتم فصل (15).pdf"
+    }
+  ]
+}

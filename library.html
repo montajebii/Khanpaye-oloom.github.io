@@ -28,6 +28,7 @@
   <meta name="twitter:title" content="کتابخانه خان‌پایه | علوم 0 تا 100" />
   <meta name="twitter:description" content="ویدیوها، جزوه‌ها و تمرین‌های علوم برای متوسطه اول." />
   <meta name="twitter:image" content="https://khanpaye-oloom.github.io/assets/images/hero.jpg" />
+  <script defer data-domain="khanpaye-oloom.github.io" src="https://plausible.io/js/script.js"></script>
 </head>
 
 <body>
@@ -109,6 +110,9 @@
           </div>
         </div>
         <div class="library-grid" data-library-grid></div>
+        <div class="hidden" data-library-empty>
+          <p>موردی با فیلترهای انتخابی پیدا نشد.</p>
+        </div>
       </div>
     </section>
   </main>
@@ -139,133 +143,6 @@
     </div>
   </footer>
 
-  <script>
-    const noteFiles = [
-      'کاربرگ علوم هفتم فصل (1).pdf',
-      'کاربرگ علوم هفتم فصل (2).pdf',
-      'کاربرگ علوم هفتم فصل (3).pdf',
-      'کاربرگ علوم هفتم فصل (4).pdf',
-      'کاربرگ علوم هفتم فصل (5).pdf',
-      'کاربرگ علوم هفتم فصل (6).pdf',
-      'کاربرگ علوم هفتم فصل (7).pdf',
-      'کاربرگ علوم هفتم فصل (8).pdf',
-      'کاربرگ علوم هفتم فصل (9).pdf',
-      'کاربرگ علوم هفتم فصل (10).pdf',
-      'کاربرگ علوم هفتم فصل (11).pdf',
-      'کاربرگ علوم هفتم فصل (12).pdf',
-      'کاربرگ علوم هفتم فصل (13).pdf',
-      'کاربرگ علوم هفتم فصل (14).pdf',
-      'کاربرگ علوم هفتم فصل (15).pdf'
-    ];
-
-    const noteItems = noteFiles.map((file) => {
-      const chapterMatch = file.match(/\((\d+)\)/);
-      const chapter = chapterMatch ? chapterMatch[1] : '';
-      const link = `assets/downloads/${encodeURIComponent(file)}`;
-      return {
-        title: `کاربرگ علوم هفتم - فصل ${chapter}`,
-        summary: `کاربرگ تمرینی فصل ${chapter} برای تثبیت مفاهیم و جمع‌بندی.`,
-        grade: '7',
-        type: 'notes',
-        typeLabel: 'جزوه/کاربرگ',
-        topic: 'عمومی',
-        duration: 'PDF',
-        level: 'تمرینی',
-        action: 'دانلود کاربرگ',
-        secondaryAction: 'مشاهده آنلاین',
-        link,
-        secondaryLink: link
-      };
-    });
-
-    window.LibraryItems = [
-      {
-        title: 'نیرو و حرکت - بخش اول',
-        summary: 'آشنایی با نیروهای وارد بر جسم، نمودار نیرو و تحلیل حرکت ساده.',
-        grade: '8',
-        type: 'video',
-        typeLabel: 'ویدیو',
-        topic: 'فیزیک',
-        duration: '۱۲ دقیقه',
-        level: 'مفهومی',
-        action: 'پخش ویدیو',
-        secondaryAction: 'دانلود جزوه',
-        link: 'video-player.html?v=4KpB7Fh2Xuo&title=نیرو و حرکت - بخش اول',
-        secondaryLink: 'assets/downloads/کاربرگ%20علوم%20هفتم%20فصل%20(1).pdf'
-      },
-      {
-        title: 'چرخه آب در طبیعت',
-        summary: 'مرور کامل چرخه آب، نمودارها و سوالات پرتکرار امتحانی.',
-        grade: '7',
-        type: 'notes',
-        typeLabel: 'جزوه',
-        topic: 'زمین',
-        duration: '۸ صفحه',
-        level: 'جمع‌بندی',
-        action: 'دانلود جزوه',
-        secondaryAction: 'تمرین مرتبط',
-        link: 'assets/downloads/کاربرگ%20علوم%20هفتم%20فصل%20(2).pdf',
-        secondaryLink: 'assets/downloads/کاربرگ%20علوم%20هفتم%20فصل%20(3).pdf'
-      },
-      {
-        title: 'سلول و اندامک‌ها',
-        summary: 'بررسی ساختار سلول گیاهی و جانوری با تصاویر آموزشی.',
-        grade: '8',
-        type: 'video',
-        typeLabel: 'ویدیو',
-        topic: 'زیست',
-        duration: '۱۵ دقیقه',
-        level: 'مفهومی',
-        action: 'پخش ویدیو',
-        secondaryAction: 'دانلود جزوه',
-        link: 'video-player.html?v=SX_ViT4Ra7k&title=سلول و اندامک‌ها',
-        secondaryLink: 'assets/downloads/کاربرگ%20علوم%20هفتم%20فصل%20(4).pdf'
-      },
-      {
-        title: 'واکنش‌های شیمیایی',
-        summary: 'مرور انواع واکنش‌ها با مثال‌های روزمره و سوالات تمرینی.',
-        grade: '9',
-        type: 'quiz',
-        typeLabel: 'تمرین',
-        topic: 'شیمی',
-        duration: '۲۰ سوال',
-        level: 'آزمون محور',
-        action: 'شروع تمرین',
-        secondaryAction: 'دانلود پاسخنامه',
-        link: 'assets/downloads/کاربرگ%20علوم%20هفتم%20فصل%20(5).pdf',
-        secondaryLink: 'assets/downloads/کاربرگ%20علوم%20هفتم%20فصل%20(6).pdf'
-      },
-      {
-        title: 'الکتریسیته ساکن',
-        summary: 'آزمایش‌های ساده برای درک بار الکتریکی و جذب اجسام.',
-        grade: '7',
-        type: 'video',
-        typeLabel: 'ویدیو',
-        topic: 'فیزیک',
-        duration: '۱۰ دقیقه',
-        level: 'مفهومی',
-        action: 'پخش ویدیو',
-        secondaryAction: 'جزوه همراه',
-        link: 'video-player.html?v=5qap5aO4i9A&title=الکتریسیته ساکن',
-        secondaryLink: 'assets/downloads/کاربرگ%20علوم%20هفتم%20فصل%20(7).pdf'
-      },
-      {
-        title: 'زمین‌لرزه و ایمنی',
-        summary: 'علت زلزله‌ها، راه‌های پیشگیری و نکات ایمنی مهم.',
-        grade: '9',
-        type: 'notes',
-        typeLabel: 'جزوه',
-        topic: 'زمین',
-        duration: '۶ صفحه',
-        level: 'جمع‌بندی',
-        action: 'دانلود جزوه',
-        secondaryAction: 'تمرین مرتبط',
-        link: 'assets/downloads/کاربرگ%20علوم%20هفتم%20فصل%20(8).pdf',
-        secondaryLink: 'assets/downloads/کاربرگ%20علوم%20هفتم%20فصل%20(9).pdf'
-      },
-      ...noteItems
-    ];
-  </script>
   <script src="assets/JS/main.js"></script>
 </body>
 

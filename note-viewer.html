@@ -1,0 +1,138 @@
+﻿<!doctype html>
+<html lang="fa" dir="rtl">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>مشاهده جزوه | خان‌پایه</title>
+  <meta name="description" content="مشاهده آنلاین جزوه‌های علوم به صورت مستقیم در مرورگر." />
+  <meta name="keywords" content="جزوه علوم, مشاهده آنلاین جزوه, آموزش علوم" />
+  <meta name="author" content="خان‌پایه" />
+  <meta name="robots" content="index,follow" />
+  <meta name="theme-color" content="#0f6a5f" />
+  <link rel="canonical" href="https://khanpaye-oloom.github.io/note-viewer.html" />
+  <link rel="icon" href="favicon.ico" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700;800&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="assets/CSS/style.css" />
+  <meta property="og:title" content="مشاهده جزوه | خان‌پایه" />
+  <meta property="og:description" content="مشاهده آنلاین جزوه‌های علوم به صورت مستقیم در مرورگر." />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://khanpaye-oloom.github.io/note-viewer.html" />
+  <meta property="og:image" content="https://khanpaye-oloom.github.io/assets/images/hero.jpg" />
+  <meta property="og:site_name" content="خان‌پایه" />
+  <meta property="og:locale" content="fa_IR" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="مشاهده جزوه | خان‌پایه" />
+  <meta name="twitter:description" content="مشاهده آنلاین جزوه‌های علوم به صورت مستقیم در مرورگر." />
+  <meta name="twitter:image" content="https://khanpaye-oloom.github.io/assets/images/hero.jpg" />
+  <script defer data-domain="khanpaye-oloom.github.io" src="https://plausible.io/js/script.js"></script>
+</head>
+
+<body>
+  <a class="skip-link" href="#content">رفتن به محتوا</a>
+  <header class="site-header">
+    <div class="wrap header-inner">
+      <div class="brand">
+        <div class="brand-mark">خ</div>
+        <div class="brand-title">
+          خان‌پایه
+          <span>علوم 0 تا 100</span>
+        </div>
+      </div>
+      <nav class="main-nav" aria-label="منوی اصلی">
+        <a href="index.html">خانه</a>
+        <a href="library.html">کتابخانه</a>
+        <a href="about.html">درباره دبیر</a>
+        <a href="contact.html">ارتباط</a>
+      </nav>
+      <div class="header-actions">
+        <a class="btn btn-ghost" href="library.html">بازگشت به کتابخانه</a>
+        <a class="btn btn-primary" href="contact.html">درخواست مشاوره</a>
+      </div>
+      <button class="mobile-toggle" type="button" data-mobile-toggle aria-label="باز کردن منو">☰</button>
+    </div>
+  </header>
+
+  <div class="mobile-panel" data-mobile-panel>
+    <nav aria-label="منوی موبایل">
+      <a href="index.html">خانه</a>
+      <a href="library.html">کتابخانه</a>
+      <a href="about.html">درباره دبیر</a>
+      <a href="contact.html">ارتباط</a>
+      <a class="btn btn-primary" href="contact.html">درخواست مشاوره</a>
+    </nav>
+  </div>
+
+  <main id="content" class="section">
+    <div class="wrap video-player">
+      <div class="video-meta">
+        <span class="tag">جزوه آموزشی</span>
+        <h1 data-note-title>مشاهده جزوه</h1>
+        <p data-note-description>این جزوه را به صورت آنلاین مرور کنید و سپس فایل را دانلود کنید.</p>
+        <div class="actions">
+          <a class="btn btn-ghost" href="library.html">بازگشت به کتابخانه</a>
+          <a class="btn btn-primary" data-note-download href="#">دانلود جزوه</a>
+        </div>
+      </div>
+      <div class="video-frame" style="padding-top: 70vh;">
+        <iframe title="نمایش جزوه" src="" data-note-frame></iframe>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <div class="footer-grid">
+        <div>
+          <h4>خان‌پایه</h4>
+          <p>پلتفرم آموزش علوم برای پایه‌های هفتم تا نهم.</p>
+        </div>
+        <div>
+          <h4>دسترسی سریع</h4>
+          <a href="library.html">کتابخانه</a>
+          <a href="contact.html">ارتباط</a>
+        </div>
+        <div>
+          <h4>راه‌های ارتباطی</h4>
+          <a href="mailto:info@khanpaye.ir">info@khanpaye.ir</a>
+          <a href="tel:+989000000000">+98 900 000 0000</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© <span data-year></span> خان‌پایه. همه حقوق محفوظ است.</span>
+        <span>جزوه‌های قابل دانلود</span>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    (function () {
+      const params = new URLSearchParams(window.location.search);
+      const file = params.get('file');
+      const title = params.get('title');
+      const frame = document.querySelector('[data-note-frame]');
+      const titleEl = document.querySelector('[data-note-title]');
+      const downloadEl = document.querySelector('[data-note-download]');
+
+      if (file && frame) {
+        frame.src = file;
+      }
+
+      if (title && titleEl) {
+        titleEl.textContent = title;
+        document.title = `${title} | مشاهده جزوه - خان‌پایه`;
+      }
+
+      if (file && downloadEl) {
+        downloadEl.href = file;
+        downloadEl.setAttribute('download', '');
+      }
+    })();
+  </script>
+  <script src="assets/JS/main.js"></script>
+</body>
+
+</html>
