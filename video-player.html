@@ -161,104 +161,102 @@
         frame.innerHTML = `
           <div id="${rnd}">
             <script type="text/JavaScript"
-              src="https://www.aparat.com/embed/${aparatId}?data[rnddiv]=${rnd}&data[responsive]=yes&titleShow=true&recom=self"></script>
+              src="https://www.aparat.com/embed/${aparatId}?data[rnddiv]=${rnd}&data[responsive]=yes&titleShow=true&recom=self"><\/script>
   </div>
   `;
-  };
+      };
 
-  fetch('assets/content/library.json')
-  .then((response) => response.json())
-  .then((data) => {
-  const videos = data.videos || [];
-  const notes = data.notes || [];
-  const selectedVideo = videos.find((video) => video.id === videoId) || videos[0];
+      fetch('assets/content/library.json')
+        .then((response) => response.json())
+        .then((data) => {
+          const videos = data.videos || [];
+          const notes = data.notes || [];
+          const selectedVideo = videos.find((video) => video.id === videoId) || videos[0];
 
-  if (!selectedVideo) {
-  return;
-  }
+          if (!selectedVideo) {
+            return;
+          }
 
-  const videoTitle = selectedVideo.title;
-  const videoSummary = selectedVideo.summary;
-  const aparatId = selectedVideo.aparatId;
-  const notesMap = Object.fromEntries(notes.map((note) => [note.id, note]));
-  const relatedNotes = (selectedVideo.notes || [])
-  .map((id) => notesMap[id])
-  .filter(Boolean);
+          const videoTitle = selectedVideo.title;
+          const videoSummary = selectedVideo.summary;
+          const aparatId = selectedVideo.aparatId;
+          const notesMap = Object.fromEntries(notes.map((note) => [note.id, note]));
+          const relatedNotes = (selectedVideo.notes || [])
+            .map((id) => notesMap[id])
+            .filter(Boolean);
 
-  if (aparatId) {
-  renderAparatEmbed(aparatId);
-  }
+          if (aparatId) {
+            renderAparatEmbed(aparatId);
+          }
 
-  if (titleEl) {
-  titleEl.textContent = videoTitle;
-  }
+          if (titleEl) {
+            titleEl.textContent = videoTitle;
+          }
 
-  if (descEl) {
-  descEl.textContent = videoSummary;
-  }
+          if (descEl) {
+            descEl.textContent = videoSummary;
+          }
 
-  if (tagEl) {
-  tagEl.textContent = `پایه ${selectedVideo.grade} · ${selectedVideo.topic}`;
-  }
+          if (tagEl) {
+            tagEl.textContent = `پایه ${selectedVideo.grade} · ${selectedVideo.topic}`;
+          }
 
-  document.title = `${videoTitle} | پخش ویدیو - خان‌پایه`;
+          document.title = `${videoTitle} | پخش ویدیو - خان‌پایه`;
 
-  if (actionsEl) {
-  const noteLink = relatedNotes[0]
-  ?
-  `note-viewer.html?file=${encodeURIComponent(relatedNotes[0].file)}&title=${encodeURIComponent(relatedNotes[0].title)}`
-  : 'library.html?type=notes';
-  actionsEl.innerHTML =
-  createActionCard('📝', 'جزوه مرتبط', 'جزوه را دانلود کن و نکات کلیدی را مرور کن.', noteLink, 'مشاهده جزوه') +
-  createActionCard('✅', 'تمرین سریع', 'تمرین‌های کوتاه برای تثبیت مطالب همین بخش.', 'library.html?type=quiz', 'مشاهده
-  تمرین‌ها') +
-  createActionCard('💬', 'رفع اشکال', 'سوالاتت را ارسال کن تا در سریع‌ترین زمان پاسخ بگیری.', 'contact.html', 'ارسال
-  سوال');
-  }
+          if (actionsEl) {
+            const noteLink = relatedNotes[0]
+              ?
+              `note-viewer.html?file=${encodeURIComponent(relatedNotes[0].file)}&title=${encodeURIComponent(relatedNotes[0].title)}`
+              : 'library.html?type=notes';
+            actionsEl.innerHTML =
+              createActionCard('📝', 'جزوه مرتبط', 'جزوه را دانلود کن و نکات کلیدی را مرور کن.', noteLink, 'مشاهده جزوه') +
+              createActionCard('✅', 'تمرین سریع', 'تمرین‌های کوتاه برای تثبیت مطالب همین بخش.', 'library.html?type=quiz', 'مشاهده تمرین‌ها') +
+              createActionCard('💬', 'رفع اشکال', 'سوالاتت را ارسال کن تا در سریع‌ترین زمان پاسخ بگیری.', 'contact.html', 'ارسال سوال');
+          }
 
-  const relatedItems = videos
-  .filter((video) => video.id !== selectedVideo.id)
-  .filter((video) => video.grade === selectedVideo.grade || video.topic === selectedVideo.topic)
-  .slice(0, 3)
-  .map((video) => ({
-  title: video.title,
-  summary: video.summary,
-  grade: video.grade,
-  typeLabel: 'ویدیو',
-  duration: video.duration,
-  level: video.level,
-  action: 'پخش ویدیو',
-  secondaryAction: 'مشاهده جزوه',
-  link: `video-player.html?id=${encodeURIComponent(video.id)}`,
-  secondaryLink: 'library.html?type=notes&grade=' + encodeURIComponent(video.grade)
-  }));
+          const relatedItems = videos
+            .filter((video) => video.id !== selectedVideo.id)
+            .filter((video) => video.grade === selectedVideo.grade || video.topic === selectedVideo.topic)
+            .slice(0, 3)
+            .map((video) => ({
+              title: video.title,
+              summary: video.summary,
+              grade: video.grade,
+              typeLabel: 'ویدیو',
+              duration: video.duration,
+              level: video.level,
+              action: 'پخش ویدیو',
+              secondaryAction: 'مشاهده جزوه',
+              link: `video-player.html?id=${encodeURIComponent(video.id)}`,
+              secondaryLink: 'library.html?type=notes&grade=' + encodeURIComponent(video.grade)
+            }));
 
-  if (relatedEl) {
-  relatedEl.innerHTML = relatedItems.length
-  ? relatedItems.map(createRelatedCard).join('')
-  : '<p>درس مرتبط دیگری برای این ویدیو ثبت نشده است.</p>';
-  }
+          if (relatedEl) {
+            relatedEl.innerHTML = relatedItems.length
+              ? relatedItems.map(createRelatedCard).join('')
+              : '<p>درس مرتبط دیگری برای این ویدیو ثبت نشده است.</p>';
+          }
 
-  const videoSchema = {
-  "@context": "https://schema.org",
-  "@type": "VideoObject",
-  "name": videoTitle,
-  "description": videoSummary,
-  "thumbnailUrl": aparatId ? `https://www.aparat.com/cover/${aparatId}/` : undefined,
-  "uploadDate": "2026-02-04",
-  "embedUrl": aparatId ? `https://www.aparat.com/embed/${aparatId}` : undefined
-  };
+          const videoSchema = {
+            "@context": "https://schema.org",
+            "@type": "VideoObject",
+            "name": videoTitle,
+            "description": videoSummary,
+            "thumbnailUrl": aparatId ? `https://www.aparat.com/cover/${aparatId}/` : undefined,
+            "uploadDate": "2026-02-04",
+            "embedUrl": aparatId ? `https://www.aparat.com/embed/${aparatId}` : undefined
+          };
 
-  let schemaEl = document.querySelector('#video-schema');
-  if (!schemaEl) {
-  schemaEl = document.createElement('script');
-  schemaEl.type = 'application/ld+json';
-  schemaEl.id = 'video-schema';
-  document.head.appendChild(schemaEl);
-  }
-  schemaEl.textContent = JSON.stringify(videoSchema);
-  });
-  })();
+          let schemaEl = document.querySelector('#video-schema');
+          if (!schemaEl) {
+            schemaEl = document.createElement('script');
+            schemaEl.type = 'application/ld+json';
+            schemaEl.id = 'video-schema';
+            document.head.appendChild(schemaEl);
+          }
+          schemaEl.textContent = JSON.stringify(videoSchema);
+        });
+    })();
   </script>
   <script src="assets/JS/main.js"></script>
 </body>
