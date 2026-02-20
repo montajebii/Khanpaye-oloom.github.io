@@ -30,7 +30,7 @@ node scripts/generate-library.js
 
 ## ساختار پوشه downloads/
 
-```graph
+```
 assets/downloads/
 ├── 7/          (پایه هفتم)
 │   ├── 1/      (فصل 1)
@@ -65,7 +65,7 @@ assets/downloads/
 
 بهتر است فایل‌های PDF را با یکی از این الگوها نام‌گذاری کنید:
 
-```list
+```
 کاربرگ علوم [پایه] فصل ([عدد]).pdf
 روبیک جامع [پایه] - فصل ([عدد]).pdf
 ```
@@ -102,7 +102,7 @@ node scripts/generate-library.js
 
 خروجی مثال:
 
-```text
+```
 🔍 Scanning downloads directory...
 📝 Found 45 note files
 ✅ Successfully generated library.json
