@@ -18,6 +18,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700;800&display=swap"
     rel="stylesheet" />
   <link rel="stylesheet" href="assets/CSS/style.css" />
+  <link rel="stylesheet" href="assets/CSS/components.css" />
   <link rel="manifest" href="manifest.webmanifest" />
   <meta property="og:title" content="خان‌پایه | علوم 0 تا 100" />
   <meta property="og:description"
@@ -60,38 +61,6 @@
 
 <body>
   <a class="skip-link" href="#content">رفتن به محتوا</a>
-  <header class="site-header">
-    <div class="wrap header-inner">
-      <div class="brand">
-        <div class="brand-mark">خ</div>
-        <div class="brand-title">
-          خان‌پایه
-          <span>علوم 0 تا 100</span>
-        </div>
-      </div>
-      <nav class="main-nav" aria-label="منوی اصلی">
-        <a class="active" href="index.html">خانه</a>
-        <a href="library.html">کتابخانه</a>
-        <a href="about.html">درباره دبیر</a>
-        <a href="contact.html">ارتباط</a>
-      </nav>
-      <div class="header-actions">
-        <a class="btn btn-ghost" href="library.html">شروع سریع</a>
-        <a class="btn btn-primary" href="contact.html">ثبت مشاوره</a>
-      </div>
-      <button class="mobile-toggle" type="button" data-mobile-toggle aria-label="باز کردن منو">☰</button>
-    </div>
-  </header>
-
-  <div class="mobile-panel" data-mobile-panel>
-    <nav aria-label="منوی موبایل">
-      <a href="index.html">خانه</a>
-      <a href="library.html">کتابخانه</a>
-      <a href="about.html">درباره دبیر</a>
-      <a href="contact.html">ارتباط</a>
-      <a class="btn btn-primary" href="contact.html">ثبت مشاوره</a>
-    </nav>
-  </div>
 
   <main id="content">
     <section class="hero">
@@ -196,8 +165,7 @@
             <p>تحلیل قدم‌به‌قدم نیروها با انیمیشن‌های ساده و مثال‌های ملموس.</p>
             <div class="actions">
               <a class="btn btn-primary" href="video-player.html?id=forces-1">پخش ویدیو</a>
-              <a class="btn btn-ghost"
-                href="assets/downloads/کاربرگ%20علوم%20هفتم%20فصل%20(1).pdf">جزوه مرتبط</a>
+              <a class="btn btn-ghost" href="assets/downloads/کاربرگ%20علوم%20هفتم%20فصل%20(1).pdf">جزوه مرتبط</a>
             </div>
             <div class="tag">پایه هشتم</div>
           </article>
@@ -206,8 +174,7 @@
             <h4>چرخه‌های مواد در طبیعت</h4>
             <p>خلاصه درس + سوالات پرتکرار امتحانی برای مرور سریع.</p>
             <div class="actions">
-              <a class="btn btn-primary"
-                href="assets/downloads/کاربرگ%20علوم%20هفتم%20فصل%20(2).pdf">دانلود جزوه</a>
+              <a class="btn btn-primary" href="assets/downloads/کاربرگ%20علوم%20هفتم%20فصل%20(2).pdf">دانلود جزوه</a>
               <a class="btn btn-ghost" href="library.html?path=grade-7&type=notes">جزوه‌های بیشتر</a>
             </div>
             <div class="tag">پایه هفتم</div>
@@ -218,8 +185,7 @@
             <p>ترکیب مفاهیم با تمرین‌های حل‌شده و نکات امتحانی.</p>
             <div class="actions">
               <a class="btn btn-primary" href="video-player.html?id=static-electricity">پخش ویدیو</a>
-              <a class="btn btn-ghost"
-                href="assets/downloads/کاربرگ%20علوم%20هفتم%20فصل%20(7).pdf">جزوه مرتبط</a>
+              <a class="btn btn-ghost" href="assets/downloads/کاربرگ%20علوم%20هفتم%20فصل%20(7).pdf">جزوه مرتبط</a>
             </div>
             <div class="tag">پایه هفتم</div>
           </article>
@@ -318,33 +284,7 @@
     </section>
   </main>
 
-  <footer class="site-footer">
-    <div class="wrap">
-      <div class="footer-grid">
-        <div>
-          <h4>خان‌پایه</h4>
-          <p>پلتفرم آموزش علوم برای دانش‌آموزان متوسطه اول؛ یادگیری مفهومی و منظم.</p>
-        </div>
-        <div>
-          <h4>دسترسی سریع</h4>
-          <a href="library.html">کتابخانه</a>
-          <a href="about.html">درباره دبیر</a>
-          <a href="contact.html">ارتباط</a>
-        </div>
-        <div>
-          <h4>راه‌های ارتباطی</h4>
-          <a href="mailto:info@khanpaye.ir">info@khanpaye.ir</a>
-          <a href="tel:+989000000000">+98 900 000 0000</a>
-          <span>تهران، ایران</span>
-        </div>
-      </div>
-      <div class="footer-bottom">
-        <span>© <span data-year></span> خان‌پایه. همه حقوق محفوظ است.</span>
-        <span>طراحی شده برای یادگیری علمی عمیق</span>
-      </div>
-    </div>
-  </footer>
-
+  <script src="assets/JS/component-loader.js"></script>
   <script src="assets/JS/main.js"></script>
 </body>
 
