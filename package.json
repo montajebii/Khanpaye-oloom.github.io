@@ -1,0 +1,15 @@
+{
+  "name": "khanepaye-oloom",
+  "version": "1.0.0",
+  "description": "خانه علوم - Educational content library",
+  "scripts": {
+    "generate-library": "node scripts/generate-library.js"
+  },
+  "keywords": [
+    "education",
+    "library",
+    "science"
+  ],
+  "author": "",
+  "license": "MIT"
+}

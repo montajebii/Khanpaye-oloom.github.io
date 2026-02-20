@@ -59,16 +59,22 @@
     revealItems.forEach((item) => observer.observe(item));
   }
 
-  const libraryGrid = document.querySelector("[data-library-grid]");
-  if (!libraryGrid) {
+  const bookshelfContainer = document.querySelector("[data-bookshelf-container]");
+  const gradeTabs = document.querySelectorAll(".grade-tab");
+  const emptyState = document.querySelector("[data-library-empty]");
+
+  if (!bookshelfContainer || !gradeTabs.length) {
     return;
   }
 
-  const filterGrade = document.querySelector("[data-filter-grade]");
-  const filterType = document.querySelector("[data-filter-type]");
-  const filterTopic = document.querySelector("[data-filter-topic]");
-  const filterSearch = document.querySelector("[data-filter-search]");
-  const emptyState = document.querySelector("[data-library-empty]");
+  // Topic display names
+  const topicLabels = {
+    'فیزیک': 'فیزیک',
+    'زیست': 'زیست‌شناسی',
+    'شیمی': 'شیمی',
+    'زمین': 'زمین‌شناسی',
+    'عمومی': 'عمومی'
+  };
 
   const toLibraryItem = (item) => {
     if (item.aparatId || item.youtubeId) {
@@ -81,10 +87,8 @@
         topic: item.topic,
         duration: item.duration,
         level: item.level,
-        action: "پخش ویدیو",
-        secondaryAction: "جزوه مرتبط",
+        id: item.id,
         link: `video-player.html?id=${encodeURIComponent(item.id)}`,
-        secondaryLink: "library.html?type=notes&grade=" + encodeURIComponent(item.grade),
       };
     }
 
@@ -93,100 +97,77 @@
       summary: item.summary,
       grade: item.grade,
       type: "notes",
-      typeLabel: "جزوه/کاربرگ",
+      typeLabel: "جزوه",
       topic: item.topic,
       duration: item.pages || "PDF",
       level: item.level,
-      action: "دانلود جزوه",
-      secondaryAction: "مشاهده آنلاین",
+      id: item.id,
+      file: item.file,
       link: item.file,
-      secondaryLink: `note-viewer.html?file=${encodeURIComponent(item.file)}&title=${encodeURIComponent(item.title)}`,
       download: true,
     };
   };
 
-  const applyFilters = (items) => {
-    const grade = filterGrade ? filterGrade.value : "all";
-    const type = filterType ? filterType.value : "all";
-    const topic = filterTopic ? filterTopic.value : "all";
-    const query = filterSearch ? filterSearch.value.trim().toLowerCase() : "";
+  const createBookElement = (item) => {
+    const summaryText = item.summary.substring(0, 80) + (item.summary.length > 80 ? '...' : '');
 
-    const results = items.filter((item) => {
-      const matchesGrade = grade === "all" || item.grade === grade;
-      const matchesType = type === "all" || item.type === type;
-      const matchesTopic = topic === "all" || item.topic === topic;
-      const matchesQuery =
-        !query ||
-        item.title.toLowerCase().includes(query) ||
-        item.summary.toLowerCase().includes(query);
-      return matchesGrade && matchesType && matchesTopic && matchesQuery;
+    return `
+      <a class="book ${item.type}" href="${item.link}" ${item.download ? 'download' : ''} title="${item.title}">
+        <span class="book-text">${item.title}</span>
+        <div class="book-preview">
+          <div class="book-preview-title">${item.title}</div>
+          <div class="book-preview-meta">
+            <span>پایه ${item.grade}</span>
+            <span>${item.typeLabel}</span>
+            <span>${item.duration}</span>
+          </div>
+          <p style="font-size: 0.8rem; margin: 8px 0 0 0;">${summaryText}</p>
+        </div>
+      </a>
+    `;
+  };
+
+  const renderBookshelf = (grade, items) => {
+    // Group items by topic and type
+    const shelves = {};
+    const topicOrder = ['فیزیک', 'زیست', 'شیمی', 'زمین', 'عمومی'];
+
+    items.forEach(item => {
+      if (item.grade !== grade) return;
+
+      if (!shelves[item.topic]) {
+        shelves[item.topic] = [];
+      }
+      shelves[item.topic].push(item);
     });
 
-    if (emptyState) {
-      emptyState.classList.toggle("hidden", results.length !== 0);
-    }
+    let html = '';
 
-    libraryGrid.innerHTML = results
-      .map((item) => {
-        const actions = [];
-        if (item.link && item.action) {
-          actions.push(
-            `<a class="btn btn-primary" href="${item.link}" ${item.download ? "download" : ""}>${item.action}</a>`,
-          );
-        }
-        if (item.secondaryLink && item.secondaryAction) {
-          actions.push(
-            `<a class="btn btn-ghost" href="${item.secondaryLink}">${item.secondaryAction}</a>`,
-          );
-        }
+    // Render shelves in topic order
+    topicOrder.forEach(topic => {
+      const topicItems = shelves[topic];
+      if (!topicItems || topicItems.length === 0) return;
 
-        return `
-          <article class="library-card">
-            <span class="tag">${item.typeLabel}</span>
-            <h3>${item.title}</h3>
-            <p>${item.summary}</p>
-            <div class="library-meta">
-              <span>پایه ${item.grade}</span>
-              <span>${item.duration}</span>
-              <span>${item.level}</span>
-            </div>
-            ${actions.length ? `<div class="actions">${actions.join("")}</div>` : ""}
-          </article>
-        `;
-      })
-      .join("");
-  };
+      html += `
+        <section class="bookshelf-section">
+          <h3>${topicLabels[topic]}</h3>
+          <div class="shelf">
+            ${topicItems.map(createBookElement).join('')}
+          </div>
+        </section>
+      `;
+    });
 
-  const setFiltersFromParams = () => {
-    const params = new URLSearchParams(window.location.search);
-    const path = params.get("path");
-    const grade = params.get("grade");
-    const type = params.get("type");
-    const topic = params.get("topic");
-    const search = params.get("search");
-
-    if (filterGrade) {
-      if (path && path.startsWith("grade-")) {
-        filterGrade.value = path.replace("grade-", "");
-      } else if (grade) {
-        filterGrade.value = grade;
-      }
-    }
-
-    if (filterType && type) {
-      filterType.value = type;
-    }
-
-    if (filterTopic && topic) {
-      filterTopic.value = topic;
-    }
-
-    if (filterSearch && search) {
-      filterSearch.value = search;
+    if (!html) {
+      emptyState.classList.remove('hidden');
+      bookshelfContainer.innerHTML = '';
+    } else {
+      emptyState.classList.add('hidden');
+      bookshelfContainer.innerHTML = html;
     }
   };
 
-  const initLibrary = async () => {
+  const initBookshelf = async () => {
     try {
       const response = await fetch("assets/content/library.json");
       if (!response.ok) {
@@ -199,18 +180,30 @@
         ...(data.notes || []).map(toLibraryItem),
       ];
 
-      [filterGrade, filterType, filterTopic, filterSearch].forEach((control) => {
-        if (!control) return;
-        control.addEventListener("input", () => applyFilters(items));
+      // Set initial grade
+      let currentGrade = "7";
+
+      // Render initial bookshelf
+      renderBookshelf(currentGrade, items);
+
+      // Handle grade tab clicks
+      gradeTabs.forEach(tab => {
+        tab.addEventListener('click', () => {
+          // Update active state
+          gradeTabs.forEach(t => t.classList.remove('active'));
+          tab.classList.add('active');
+
+          // Update current grade and render
+          currentGrade = tab.dataset.grade;
+          renderBookshelf(currentGrade, items);
+        });
       });
 
-      setFiltersFromParams();
-      applyFilters(items);
     } catch (error) {
-      libraryGrid.innerHTML =
-        '<p>در حال حاضر امکان بارگذاری محتوا وجود ندارد.</p>';
+      console.error('Error loading library:', error);
+      bookshelfContainer.innerHTML = '<p>در حال حاضر امکان بارگذاری محتوا وجود ندارد.</p>';
     }
   };
 
-  initLibrary();
+  initBookshelf();
 })();

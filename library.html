@@ -73,45 +73,20 @@
     <section class="section">
       <div class="wrap">
         <h1 class="section-title">کتابخانه محتوا</h1>
-        <p class="section-subtitle">از فیلترها برای پیدا کردن سریع محتوای مناسب استفاده کنید.</p>
-        <div class="library-filters">
-          <div>
-            <label for="grade">پایه</label>
-            <select id="grade" data-filter-grade>
-              <option value="all">همه پایه‌ها</option>
-              <option value="7">هفتم</option>
-              <option value="8">هشتم</option>
-              <option value="9">نهم</option>
-            </select>
-          </div>
-          <div>
-            <label for="type">نوع محتوا</label>
-            <select id="type" data-filter-type>
-              <option value="all">همه</option>
-              <option value="video">ویدیو</option>
-              <option value="notes">جزوه</option>
-              <option value="quiz">تمرین</option>
-            </select>
-          </div>
-          <div>
-            <label for="topic">موضوع</label>
-            <select id="topic" data-filter-topic>
-              <option value="all">همه موضوعات</option>
-              <option value="فیزیک">فیزیک</option>
-              <option value="زیست">زیست</option>
-              <option value="شیمی">شیمی</option>
-              <option value="زمین">زمین‌شناسی</option>
-              <option value="عمومی">عمومی</option>
-            </select>
-          </div>
-          <div>
-            <label for="search">جستجو</label>
-            <input id="search" type="search" placeholder="عنوان یا کلیدواژه..." data-filter-search />
+        <p class="section-subtitle">کتاب‌های علوم خود را از قفسه انتخاب کنید.</p>
+
+        <div class="grade-tabs-wrapper">
+          <div class="grade-tabs">
+            <button class="grade-tab active" data-grade="7">پایه هفتم</button>
+            <button class="grade-tab" data-grade="8">پایه هشتم</button>
+            <button class="grade-tab" data-grade="9">پایه نهم</button>
           </div>
         </div>
-        <div class="library-grid" data-library-grid></div>
+
+        <div class="bookshelf-container" data-bookshelf-container></div>
+
         <div class="hidden" data-library-empty>
-          <p>موردی با فیلترهای انتخابی پیدا نشد.</p>
+          <p>محتوای این پایه هنوز موجود نیست.</p>
         </div>
       </div>
     </section>
