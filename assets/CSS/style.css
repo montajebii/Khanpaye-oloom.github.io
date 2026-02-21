@@ -21,7 +21,7 @@
 
 @font-face {
   font-family: "Vazir";
-  src: url("https://cdn.jsdelivr.net/gh/rastikerdar/vazir-font@v30.1.0/dist/Vazir.woff2")
+  src: url("https://cdnjs.cloudflare.com/ajax/libs/vazir-font/30.1.0/Farsi-Digits-Without-Latin/Vazir-Black-FD-WOL.woff2")
     format("woff2");
   font-display: swap;
 }
