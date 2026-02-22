@@ -59,7 +59,9 @@
     revealItems.forEach((item) => observer.observe(item));
   }
 
-  const bookshelfContainer = document.querySelector("[data-bookshelf-container]");
+  const bookshelfContainer = document.querySelector(
+    "[data-bookshelf-container]",
+  );
   const gradeTabs = document.querySelectorAll(".grade-tab");
   const emptyState = document.querySelector("[data-library-empty]");
 
@@ -69,11 +71,11 @@
 
   // Topic display names
   const topicLabels = {
-    'فیزیک': 'فیزیک',
-    'زیست': 'زیست‌شناسی',
-    'شیمی': 'شیمی',
-    'زمین': 'زمین‌شناسی',
-    'عمومی': 'عمومی'
+    فیزیک: "فیزیک",
+    زیست: "زیست‌شناسی",
+    شیمی: "شیمی",
+    زمین: "زمین‌شناسی",
+    عمومی: "عمومی",
   };
 
   const toLibraryItem = (item) => {
@@ -109,10 +111,11 @@
   };
 
   const createBookElement = (item) => {
-    const summaryText = item.summary.substring(0, 80) + (item.summary.length > 80 ? '...' : '');
+    const summaryText =
+      item.summary.substring(0, 80) + (item.summary.length > 80 ? "..." : "");
 
     return `
-      <a class="book ${item.type}" href="${item.link}" ${item.download ? 'download' : ''} title="${item.title}">
+      <a class="book ${item.type}" href="${item.link}" ${item.download ? "download" : ""} title="${item.title}">
         <span class="book-text">${item.title}</span>
         <div class="book-preview">
           <div class="book-preview-title">${item.title}</div>
@@ -130,9 +133,9 @@
   const renderBookshelf = (grade, items) => {
     // Group items by topic and type
     const shelves = {};
-    const topicOrder = ['فیزیک', 'زیست', 'شیمی', 'زمین', 'عمومی'];
+    const topicOrder = ["فیزیک", "زیست", "شیمی", "زمین", "عمومی"];
 
-    items.forEach(item => {
+    items.forEach((item) => {
       if (item.grade !== grade) return;
 
       if (!shelves[item.topic]) {
@@ -141,10 +144,10 @@
       shelves[item.topic].push(item);
     });
 
-    let html = '';
+    let html = "";
 
     // Render shelves in topic order
-    topicOrder.forEach(topic => {
+    topicOrder.forEach((topic) => {
       const topicItems = shelves[topic];
       if (!topicItems || topicItems.length === 0) return;
 
@@ -152,17 +155,17 @@
         <section class="bookshelf-section">
           <h3>${topicLabels[topic]}</h3>
           <div class="shelf">
-            ${topicItems.map(createBookElement).join('')}
+            ${topicItems.map(createBookElement).join("")}
           </div>
         </section>
       `;
     });
 
     if (!html) {
-      emptyState.classList.remove('hidden');
-      bookshelfContainer.innerHTML = '';
+      emptyState.classList.remove("hidden");
+      bookshelfContainer.innerHTML = "";
     } else {
-      emptyState.classList.add('hidden');
+      emptyState.classList.add("hidden");
       bookshelfContainer.innerHTML = html;
     }
   };
@@ -187,23 +190,42 @@
       renderBookshelf(currentGrade, items);
 
       // Handle grade tab clicks
-      gradeTabs.forEach(tab => {
-        tab.addEventListener('click', () => {
+      gradeTabs.forEach((tab) => {
+        tab.addEventListener("click", () => {
           // Update active state
-          gradeTabs.forEach(t => t.classList.remove('active'));
-          tab.classList.add('active');
+          gradeTabs.forEach((t) => t.classList.remove("active"));
+          tab.classList.add("active");
 
           // Update current grade and render
           currentGrade = tab.dataset.grade;
           renderBookshelf(currentGrade, items);
         });
       });
-
     } catch (error) {
-      console.error('Error loading library:', error);
-      bookshelfContainer.innerHTML = '<p>در حال حاضر امکان بارگذاری محتوا وجود ندارد.</p>';
+      console.error("Error loading library:", error);
+      bookshelfContainer.innerHTML =
+        "<p>در حال حاضر امکان بارگذاری محتوا وجود ندارد.</p>";
     }
   };
 
   initBookshelf();
 })();
+//////////////////////////////////////////////
+const toggleBtn = document.querySelector(".mobile-toggle");
+const panel = document.querySelector(".mobile-panel");
+const closeBtn = document.querySelector(".mobile-panel-close");
+
+toggleBtn.addEventListener("click", () => {
+  panel.classList.add("open");
+});
+
+closeBtn.addEventListener("click", () => {
+  panel.classList.remove("open");
+});
+
+// بستن پنل با کلیک روی overlay (پس‌زمینه)
+panel.addEventListener("click", (e) => {
+  if (e.target === panel) {
+    panel.classList.remove("open");
+  }
+});

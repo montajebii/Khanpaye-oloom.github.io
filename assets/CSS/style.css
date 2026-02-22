@@ -19,13 +19,6 @@
   --transition: 200ms ease;
 }
 
-@font-face {
-  font-family: "Vazir";
-  src: url("https://cdnjs.cloudflare.com/ajax/libs/vazir-font/30.1.0/Farsi-Digits-Without-Latin/Vazir-Black-FD-WOL.woff2")
-    format("woff2");
-  font-display: swap;
-}
-
 * {
   box-sizing: border-box;
   margin: 0;
@@ -37,7 +30,7 @@ html {
 }
 
 body {
-  font-family: "Vazir", "Vazirmatn", "Noto Naskh Arabic", sans-serif;
+  font-family: Vazirmatn RD UI FD;
   background: radial-gradient(
     circle at 30% -10%,
     #fff6e6 0%,
@@ -150,6 +143,7 @@ textarea:focus-visible {
 }
 
 .brand-title span {
+  font-family: Vazirmatn RD UI;
   font-size: 0.85rem;
   color: var(--muted);
   font-weight: 500;
@@ -248,7 +242,7 @@ textarea:focus-visible {
 .hero {
   padding: 80px 0 60px;
   position: relative;
-  overflow: hidden;
+  overflow: visible;
 }
 
 .hero-grid {
@@ -311,17 +305,7 @@ textarea:focus-visible {
 }
 
 .hero-bg {
-  position: absolute;
-  inset: auto -5% -25% auto;
-  width: 360px;
-  height: 360px;
-  background: radial-gradient(
-    circle,
-    rgba(243, 156, 56, 0.35),
-    rgba(243, 156, 56, 0)
-  );
-  filter: blur(0);
-  z-index: -1;
+  display: none;
 }
 
 .section {
@@ -408,7 +392,7 @@ textarea:focus-visible {
 
 .feature-card h3 {
   margin-bottom: 4px;
-  font-size: 1.15rem;
+  font-size: 1.16rem;
 }
 
 .feature-card p {
@@ -610,10 +594,18 @@ textarea:focus-visible {
 }
 
 .site-footer {
+  font-family: Vazirmatn RD UI;
   background: var(--bg-deep);
   color: rgba(255, 255, 255, 0.8);
   padding: 60px 0 30px;
   margin-top: 40px;
+}
+
+.site-footer .footer-grid div:nth-child(3) a {
+  direction: ltr;
+  text-align: right;
+  display: block; /* برای اینکه هر کدام در خط جداگانه قرار گیرند */
+  unicode-bidi: embed; /* جلوگیری از تأثیر direction کلی روی اعداد */
 }
 
 .footer-grid {
@@ -669,10 +661,38 @@ textarea:focus-visible {
   box-shadow: 0 10px 18px rgba(13, 25, 33, 0.12);
 }
 
+.mobile-panel-close {
+  position: absolute;
+  top: 16px;
+  left: 16px; /* چون پنل از راست می‌آید، دکمه بستن را چپ قرار می‌دهیم */
+  width: 40px;
+  height: 40px;
+  border: none;
+  background: rgba(0, 0, 0, 0.05);
+  border-radius: 50%;
+  font-size: 1.5rem;
+  color: var(--ink);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition:
+    background-color var(--transition),
+    transform var(--transition);
+  z-index: 215; /* بالاتر از nav */
+}
+
+.mobile-panel-close:hover {
+  background: rgba(0, 0, 0, 0.1);
+  transform: scale(1.1);
+}
+
 .mobile-panel {
   position: fixed;
   inset: 0;
-  background: rgba(10, 18, 24, 0.45);
+  background: rgba(10, 18, 24, 0.3);
+  backdrop-filter: blur(4px); /* افکت مات */
+  -webkit-backdrop-filter: blur(4px);
   opacity: 0;
   pointer-events: none;
   transition: opacity var(--transition);
@@ -691,12 +711,13 @@ textarea:focus-visible {
   width: min(320px, 85vw);
   height: 100%;
   background: var(--surface);
-  padding: 24px;
+  padding: 60px 24px 24px;
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 12px;
   transform: translateX(100%);
   transition: transform var(--transition);
+  box-shadow: -5px 0 25px rgba(0, 0, 0, 0.15); /* سایه برای عمق بیشتر */
 }
 
 .mobile-panel.open nav {
@@ -704,24 +725,53 @@ textarea:focus-visible {
 }
 
 .mobile-panel a {
-  font-weight: 600;
+  font-weight: 500; /* کمی نرم‌تر */
   color: var(--ink);
+  padding: 12px 16px;
+  border-radius: 12px; /* گوشه‌های گرد */
   transition:
+    background-color var(--transition),
     color var(--transition),
     transform var(--transition);
+  text-decoration: none;
+  display: block; /* برای padding */
 }
 
 .mobile-panel a:hover {
+  background: rgba(15, 106, 95, 0.08); /* هایلایت ملایم */
   color: var(--primary-strong);
-  transform: translateX(-4px);
+  transform: translateX(-4px); /* حرکت به چپ (جهت RTL) */
+}
+
+/* تغییر: استایل لینک ثبت مشاوره (متفاوت) */
+.mobile-panel .consultation-btn {
+  background: var(--primary); /* رنگ اصلی */
+  color: white;
+  text-align: center;
+  margin-top: 8px;
+  border: none;
+  font-weight: 600;
+}
+
+.mobile-panel .consultation-btn:hover {
+  background: var(--primary-strong);
+  color: white;
+  transform: translateY(-8px);
+  box-shadow: 0 8px 16px rgba(15, 106, 95, 0.3);
+}
+
+@media (max-width: 768px) {
+  .mobile-toggle {
+    display: block; /* نمایش دکمه در موبایل */
+  }
 }
 
 .reveal {
   opacity: 0;
   transform: translateY(18px);
   transition:
-    opacity 400ms ease,
-    transform 400ms ease;
+    opacity 500ms ease,
+    transform 500ms ease;
 }
 
 .reveal.visible {
